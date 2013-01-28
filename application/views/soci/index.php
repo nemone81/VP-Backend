@@ -22,7 +22,7 @@
 								<th>Nome</th>
 								<th>Cognome</th>
 								<th class="hidden-phone">Tipologia</th>
-								<th class="hidden-phone">Data e Luogo di Nascita</th>
+								<th class="hidden-phone">Data e luogo di Nascita</th>
 								<th class="hidden-phone">Email</th>
 								<th class="hidden-phone">Note</th>
 								</tr>
