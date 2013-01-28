@@ -1,0 +1,123 @@
+<?php
+class Soci extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('soci_model');
+		$tipologia = array (0 => 'Standard', 1 => 'Universitario', 3 => 'Bambino'); // da spostare? 'tipo' su DB soci
+		$corso = array (0 => 'Senza Corso', 1 => 'Con Corso'); // da spostare?
+		$abbonamento = array (1 => 'Mensile', 2 => 'Trimestrale', 3 => 'Annuale', 4 => 'Iscrizione', 5 => 'Carnet'); // da spostare?
+	}
+
+	public function index()
+	{	
+	//	$tipologia = array (0 => 'Standard', 1 => 'Universitario', 3 => 'Bambino'); // non carica
+		$data['soci'] = $this->soci_model->get_soci();
+		$data['title'] = 'Lista Soci';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('soci/index', $data);
+		$this->load->view('templates/footer_table');
+	}
+	
+	
+
+
+	public function view($slug)
+	{
+		$data['soci_item'] = $this->soci_model->get_soci($slug);
+		
+		if (empty($data['soci_item']))
+		{
+			show_404();
+		}
+	//	$data['title'] = $data['soci_item']['title'];
+		$data['title'] = 'Scheda Socio';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('soci/view', $data);
+		$this->load->view('templates/footer_table');
+	}	
+	
+	
+	public function create()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		$data['title'] = 'Inserisci un nuovo socio';
+		
+		$this->form_validation->set_rules('nome', 'nome', 'required');
+		$this->form_validation->set_rules('cognome', 'cognome', 'required');
+		
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$maxnumtessera = $this->soci_model->get_maxtessera();
+			$this->load->view('soci/create',  array('Ntessera' => $maxnumtessera['tessera']));
+			$this->load->view('templates/footer_form');
+		}
+		else
+		{
+			$this->soci_model->set_soci();
+			$data['soci'] = $this->soci_model->get_soci();
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);	
+			$this->load->view('soci/success', $data);
+			$this->load->view('templates/footer');
+		}
+	}
+	
+	public function edit($slug)
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		$data['title'] = 'Modifica dati';
+		
+		$this->form_validation->set_rules('nome', 'nome', 'required');
+		$this->form_validation->set_rules('cognome', 'cognome', 'required');
+		
+		if ($this->form_validation->run() === FALSE)
+		{
+			$data['soci_item'] = $this->soci_model->get_soci($slug);
+			$this->load->view('templates/header', $data);
+			$this->load->view('soci/edit_script', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('soci/edit');
+			$this->load->view('templates/footer_form');
+		}
+		else
+		{
+			$this->soci_model->update_soci();
+			$data['soci_item'] = $this->soci_model->get_soci($slug);
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);	
+			$this->load->view('soci/success_edit', $data);
+			$this->load->view('templates/footer');
+		}
+	}
+
+	public function get_dump_soci()
+	{
+		  $this->load->dbutil();
+		  $this->load->helper('file');
+		  $report = $this->soci_model->dump_soci();
+		  $new_report = $this->dbutil->csv_from_result($report);
+		  $dump_filename = 'dump/Lista_Soci_'.unix_to_human(time()).'.csv';
+		  write_file($dump_filename, $new_report);
+		  redirect(base_url($dump_filename), 'refresh');
+	}	
+	
+	public function delete_soci()
+	{
+		$data['title'] = 'Elimina dati';
+		$this->soci_model->delete_soci();
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);	
+		$this->load->view('templates/footer');	  
+	}
+	
+}
