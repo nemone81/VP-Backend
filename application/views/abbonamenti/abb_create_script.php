@@ -2,7 +2,7 @@
 <script>
 $(document).ready( function() { 
   $('#abbonamento').bind('change', function (e) { 
-    if( $('#abbonamento').val() <= 3 ) {
+    if( $('#abbonamento').val() == 'M' || $('#abbonamento').val() == 'T' || $('#abbonamento').val() == 'A' ) {
       $('#corso').slideDown();
     }
     else{
