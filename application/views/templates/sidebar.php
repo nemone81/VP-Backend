@@ -46,8 +46,8 @@
 			<!-- END RESPONSIVE QUICK SEARCH FORM -->
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul>
-				<li><a href="index.html"><i class="icon-home"></i> Dashboard</a></li>
-				<li class=""><a class="" href="<?php echo base_url('index.php/soci'); ?>/"><i class="icon-list"></i> Lista Soci</a></li>
+				<li><a href="<?php echo base_url('index.php/dashboard'); ?>"><i class="icon-home"></i> Dashboard</a></li>
+				<li class=""><a class="" href="<?php echo base_url('index.php/soci'); ?>"><i class="icon-list"></i> Lista Soci</a></li>
 				<li><a class="" href="<?php echo base_url('index.php/soci/create'); ?>"><i class="icon-plus"></i> Nuovo Socio</a></li>
 <!-- 				<li><a class="" href="<?php echo base_url('index.php/abbonamenti/create'); ?>"><i class="icon-plus"></i> Nuovo Abboamento</a></li> -->
 
@@ -67,11 +67,13 @@
 					<div class="span12">
 			<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<p>
+<!--
                   <ul class="breadcrumb">
                      <li>
                         <?php echo $title ?>
                      </li>
                   </ul>
+-->
                   <!-- END PAGE TITLE & BREADCRUMB-->
                </div>
             </div>

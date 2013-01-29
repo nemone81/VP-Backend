@@ -10,27 +10,31 @@
          <!-- BEGIN SAMPLE FORM PORTLET-->	
          <div class="widget">
             <div class="widget-title">
-               <h4><i class="icon-plus"> </i>Aggiungi abbonamento per <?php echo ($_GET['nome']).' '.($_GET['cognome'])?></h4>
+               <h4><i class="icon-plus"> </i>Aggiungi abbonamento</h4>
             </div>
             <div class="widget-body form">
 				<!-- BEGIN FORM-->
 				
 				<?php echo validation_errors(); ?>
 				<?php echo form_open('abbonamenti/create') ?>
+
+				 <p style="font-size: 15px;margin-left: 132px;"> Socio &nbsp 
+				 	<?php echo ($_GET['nome']).' '.($_GET['cognome'])?>
+				 </p>
 				
-				
-				 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp <strong><?php $tipologia = array (1 => 'Standard', 2 => 'Universitario', 3 => 'Bambino'); // sposstare in constructor ?
-					echo $tipologia[1] ?></strong></p>
+				 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp
+				 	<?php echo $tipologia[$_GET['tipo']] ?>
+				 </p>
 
 				<div class="control-group">
 				 <label class="control-label" >Abbonamento</label>
 				 <div class="controls">
 				    <select class="span2" id="abbonamento" data-placeholder="Scegli Abbonamento" tabindex="1" name="abbonamento">
-						<option value="4">Iscrizione</option>
-						<option value="5">Carnet</option>
-						<option value="1">Mensile</option>
-						<option value="2">Trimestrale</option>
-						<option value="3">Annuale</option>
+						<option value="I">Iscrizione</option>
+						<option value="K">Carnet</option>
+						<option value="M">Mensile</option>
+						<option value="T">Trimestrale</option>
+						<option value="A">Annuale</option>
 					</select>
 				 </div>
 				</div>
@@ -40,8 +44,8 @@
 				</label>
 				 <div class="controls">
 				    <select class="span2" data-placeholder="Scegli Tipologia" tabindex="1" name="tipologia">
-						<option value="1">Senza Corso</option>
-						<option value="2">Con Corso</option>
+						<option value="N">Senza Corso</option>
+						<option value="C">Con Corso</option>
 					</select>
 				 </div>
 				</div>
@@ -66,7 +70,7 @@
 						<option value="11-30">Novembre</option>
 						<option value="12-31">Dicembre</option>
 					</select>
-					<input class="input-small" size="16" type="text" value="<?php echo date('Y', time());?>" name="data_scadenza_anno" data-date-format="yyyy-mm-dd"/>
+					<input class="input-small" size="16" type="text" value="<?php echo date('Y', time());?>" name="data_scadenza_anno" data-date-format="yyyy"/>
 				 </div>
                   
 				<div class="control-group">

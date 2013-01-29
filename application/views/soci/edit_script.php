@@ -3,6 +3,7 @@
 $(document).ready( function() { 
 	$('select#tipo').val('<?php echo $soci_item['tipo']?>'); 
 	$('select#sesso').val('<?php echo $soci_item['sesso']?>');
+	$('select#certificato_medico').val('<?php echo $soci_item['certificato_medico']?>');
 });
 </script>
 

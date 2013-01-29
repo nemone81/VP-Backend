@@ -41,7 +41,7 @@ class Abbonamenti extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Inserisi un abbonamento';
-
+		$data['tipologia'] = $this->tipologia->getData();
 		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
 	//	$this->form_validation->set_rules('scadenza', 'scadenza', 'required');
 		
@@ -71,7 +71,7 @@ class Abbonamenti extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Modifica dati';
-		
+		$data['tipologia'] = $this->tipologia->getData();
 		$this->form_validation->set_rules('nome', 'nome', 'required');
 		$this->form_validation->set_rules('cognome', 'cognome', 'required');
 		

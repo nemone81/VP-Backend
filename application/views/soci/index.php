@@ -30,21 +30,20 @@
 							<tbody>
 							<?php foreach ($soci as $soci_item): ?>
 							<tr class="odd gradeX">
-									<td class="center">
-										<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;	
-										<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['slug'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica scheda Socio"><i class="icon-pencil"></i></a>&nbsp;
-										<a href="<?php echo base_url('index.php/soci/delete_soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina scheda Socio"><i class="icon-remove"></i></a>&nbsp;		
-									</td>
-									<td><?php echo $soci_item['tessera'] ?></td>
-									<td><a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'] ?>"><?php echo $soci_item['nome'] ?></a></td>
-									<td><?php echo $soci_item['cognome'] ?></td>
-									<td class="hidden-phone"><?php 
-									$tipologia = array (1 => 'Standard', 2 => 'Universitario', 3 => 'Bambino'); // spostare?
-									echo $tipologia[$soci_item['tipo']] ?></span></td>													
-									<td class="hidden-phone center"><?php echo $soci_item['data_nascita'].' | '.$soci_item['luogo_nascita'] ?></td>
-									<td class="hidden-phone"><a href="mailto:<?php echo $soci_item['email'] ?>"><?php echo $soci_item['email'] ?></a></td>
-									<td class="hidden-phone" style="max-width: 200px;"><?php echo $soci_item['note'] ?></span></td>
-								</tr>
+								<td class="center">
+									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'].'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;
+									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['slug'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica scheda Socio"><i class="icon-pencil"></i></a>&nbsp;
+									<a href="<?php echo base_url('index.php/soci/delete_soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina scheda Socio"><i class="icon-remove"></i></a>&nbsp;		
+								</td>
+								<td><?php echo $soci_item['tessera'] ?></td>
+								<td><a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'].'/'.$soci_item['id']?>"><?php echo $soci_item['nome'] ?></a></td>
+								<td><?php echo $soci_item['cognome'] ?></td>
+								<td class="hidden-phone"><?php 
+								echo $tipologia[$soci_item['tipo']] ?></span></td>													
+								<td class="hidden-phone center"><?php echo $soci_item['data_nascita'].' | '.$soci_item['luogo_nascita'] ?></td>
+								<td class="hidden-phone"><a href="mailto:<?php echo $soci_item['email'] ?>"><?php echo $soci_item['email'] ?></a></td>
+								<td class="hidden-phone" style="max-width: 200px;"><?php echo $soci_item['note'] ?></span></td>
+							</tr>
 							<?php endforeach ?>
 							</tbody>
 						</table>

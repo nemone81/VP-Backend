@@ -1,17 +1,10 @@
 <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 
-	<?php $abbonamenti_item=end($abbonamenti);
-	//	 $var = $abbonamenti_item['id_socio'];
-	//	 echo $var;
-		 //$soci_item=$soci[];?>	
-	<div class="alert alert-success">
-		<button class="close" data-dismiss="alert">×</button>
-		<strong>Nuovo abbonamentio inserito</strong>.
-	</div>
+	<?php $abbonamenti_item=end($abbonamenti); ?>
 
 	<div class="widget">
 		<div class="widget-title">
-			<h4><i class="icon-sign-blank"> </i><?php // echo $abbonamenti_item['nome'].' '.$abbonamenti_item['cognome']; ?></h4>
+			<h4><i class="icon-sign-blank"> </i>Nuovo Abbonamento</h4>
 			<span class="tools">
 			<a href="javascript:;" class="icon-chevron-down"></a>
 			<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
@@ -20,6 +13,11 @@
 			</span>							
 		</div>
 		<div class="widget-body">
+			<div class="alert alert-success">
+				<button class="close" data-dismiss="alert">×</button>
+				<strong>Nuovo abbonamentio inserito</strong>.
+			</div>		
+		
 			<?php include 'abbonamenti_details_snippet.php'; ?>
 			<div style="clear:both">
 			<hr>

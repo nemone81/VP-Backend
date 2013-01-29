@@ -10,10 +10,8 @@
                         <div class="widget-body form">
                            <!-- BEGIN FORM-->
                            
-                         <?php echo validation_errors(); ?>
-						  
-                           
-						<?php echo form_open('soci/edit/'.$soci_item['slug']) ?>
+							<?php echo validation_errors(); ?>
+							<?php echo form_open('soci/edit/'.$soci_item['slug']) ?>
 						
                               <div class="control-group">
                                  <label class="control-label" for="nome">Nome</label>
@@ -33,7 +31,6 @@
                                  <label class="control-label" for="tessera">Numero Tessera</label>
                                  <div class="controls">
                                     <input type="text" class="span1" id="input1" name="tessera" value="<?php echo $soci_item['tessera']?>" />
-                                    <span class="help-inline">Numero tessera disponibile</span>
                                  </div>
                               </div>                              
 
@@ -54,9 +51,7 @@
                                     <input class="input-small date-picker" size="16" type="text" name="data_nascita" data-date-format="yyyy-mm-dd" value="<?php echo $soci_item['data_nascita']?>"  />
                                  </div>
                               </div>
-                              
 
-                              
                               <div class="control-group">
                                  <label class="control-label" for="cognome">Luogo di Nascita</label>
                                  <div class="controls">
@@ -78,10 +73,6 @@
                                  </div>
                               </div>
                               
-                              
-                              
-                              
-                              
                               <div class="control-group">
                                  <label class="control-label" for="input7">Email</label>
                                  <div class="controls">
@@ -98,7 +89,6 @@
                                  </div>
                               </div>
                               
-                              
                               <div class="control-group">
                                  <label class="control-label" >Sesso</label>
                                  <div class="controls">
@@ -109,7 +99,15 @@
                                  </div>
                               </div>
                               
-                              
+			                  <div class="control-group">
+			                     <label class="control-label" >Certificato Medico</label>
+			                     <div class="controls">
+			                        <select class="span2" data-placeholder="Scegli" tabindex="1" name="certificato_medico" id="certificato_medico"/>
+			                           <option value="Assente">Assente</option>
+			                           <option value="Presente">Presente</option>
+			                        </select>
+			                     </div>
+			                  </div>
                               
                               <div class="control-group">
                                  <label class="control-label" for="inputRemarks">Note</label>
@@ -118,7 +116,6 @@
                                  </div>
                               </div>
                               
-                                                            
                               <div class="form-actions">
                                  <button type="submit" class="btn btn-primary">Salva</button>
                                  <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['slug']) ?>'">Cancel</button>
@@ -138,20 +135,9 @@
                      </div>
                      <!-- END VALIDATION STATES-->
                      
-                     
                   </div>
                </div>
-               
-               
-               
-               
-               
             </div>
-            
-            
-            
-            
-            
             
             <!-- END PAGE CONTENT-->			
          </div>

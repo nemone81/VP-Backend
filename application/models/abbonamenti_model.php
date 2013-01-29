@@ -33,8 +33,8 @@ class Abbonamenti_model extends CI_Model {
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
 		$data = array(
 			'id_socio' => $this->input->post('id_socio'),
-			'id_abbonamento' => $this->input->post('tipo').$this->input->post('abbonamento').$this->input->post('tipologia'),
-			'scadenza' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza').' 00:00:00',
+			'id_abbonamento' => $this->input->post('tipo').$this->input->post('abbonamento').$this->input->post('tipologia').'-2013',
+			'scadenza' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza_mese').' 23:59:59',
 			'note' => $this->input->post('note'),
 			'data_modifica' => $nowhuman,
 			'data_creazione' => $nowhuman,
@@ -48,8 +48,8 @@ class Abbonamenti_model extends CI_Model {
 		$this->load->helper('url');
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
 		$up_data = array(
-			'id_abbonamento' => $this->input->post('abbonamento').$this->input->post('tipologia').$this->input->post('tipo'),
-			'scadenza' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza').' 00:00:00',
+			'id_abbonamento' => $this->input->post('abbonamento').$this->input->post('tipologia').$this->input->post('tipo').'-2013',
+			'scadenza' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza_mese').' 23:59:59',
 			'note' => $this->input->post('note'),
 			'data_modifica' => $nowhuman,
 			'note' => $this->input->post('note'),

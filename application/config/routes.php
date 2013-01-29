@@ -39,6 +39,7 @@
 
 */
 //$route['dump/(:any)'] = 'dump/';
+$route['dashboard'] = 'dashboard';
 $route['abbonamenti/create'] = 'abbonamenti/create';
 $route['soci/get_dump_soci'] = 'soci/get_dump_soci';
 $route['soci/create'] = 'soci/create';
@@ -46,7 +47,6 @@ $route['soci/edit/(:any)'] = 'soci/edit/$1';
 $route['soci/(:any)'] = 'soci/view/$1';
 $route['soci/delete_soci/(:any)'] = 'soci/delete_soci/$1';
 $route['soci/delete_soci'] = 'soci/delete_soci';
-
 $route['soci'] = 'soci';
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

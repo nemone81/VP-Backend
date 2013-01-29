@@ -5,27 +5,23 @@ class Soci extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('soci_model');
-		$tipologia = array (0 => 'Standard', 1 => 'Universitario', 3 => 'Bambino'); // da spostare? 'tipo' su DB soci
-		$corso = array (0 => 'Senza Corso', 1 => 'Con Corso'); // da spostare?
-		$abbonamento = array (1 => 'Mensile', 2 => 'Trimestrale', 3 => 'Annuale', 4 => 'Iscrizione', 5 => 'Carnet'); // da spostare?
 	}
 
 	public function index()
 	{	
-	//	$tipologia = array (0 => 'Standard', 1 => 'Universitario', 3 => 'Bambino'); // non carica
 		$data['soci'] = $this->soci_model->get_soci();
 		$data['title'] = 'Lista Soci';
+		$data['tipologia'] = $this->tipologia->getData();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/index', $data);
 		$this->load->view('templates/footer_table');
 	}
 	
-	
 
-
-	public function view($slug)
+	public function view($slug,$id)
 	{
+		$data = array();
 		$data['soci_item'] = $this->soci_model->get_soci($slug);
 		
 		if (empty($data['soci_item']))
@@ -34,6 +30,10 @@ class Soci extends CI_Controller {
 		}
 	//	$data['title'] = $data['soci_item']['title'];
 		$data['title'] = 'Scheda Socio';
+		$data['tipologia'] = $this->tipologia->getData();
+		$data['abbonamenti'] = $this->query_db->get_abbonamenti($id);
+		$data['abbonamenti_scaduti'] = $this->query_db->get_abbonamenti_scaduti();
+		$data['tipo_abbonamenti'] = $this->query_db->get_tipo_abbonamenti();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/view', $data);
@@ -47,7 +47,9 @@ class Soci extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Inserisci un nuovo socio';
-		
+		$data['tipologia'] = $this->tipologia->getData();
+
+
 		$this->form_validation->set_rules('nome', 'nome', 'required');
 		$this->form_validation->set_rules('cognome', 'cognome', 'required');
 		
@@ -70,18 +72,19 @@ class Soci extends CI_Controller {
 		}
 	}
 	
+	
 	public function edit($slug)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
-		$data['title'] = 'Modifica dati';
-		
+		$data['tipologia'] = $this->tipologia->getData();
 		$this->form_validation->set_rules('nome', 'nome', 'required');
 		$this->form_validation->set_rules('cognome', 'cognome', 'required');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
+			$data['title'] = 'Modifica dati';
 			$data['soci_item'] = $this->soci_model->get_soci($slug);
 			$this->load->view('templates/header', $data);
 			$this->load->view('soci/edit_script', $data);
@@ -91,6 +94,7 @@ class Soci extends CI_Controller {
 		}
 		else
 		{
+			$data['title'] = 'Dati modificati';
 			$this->soci_model->update_soci();
 			$data['soci_item'] = $this->soci_model->get_soci($slug);
 			$this->load->view('templates/header', $data);
@@ -99,6 +103,7 @@ class Soci extends CI_Controller {
 			$this->load->view('templates/footer');
 		}
 	}
+	
 
 	public function get_dump_soci()
 	{
@@ -110,6 +115,7 @@ class Soci extends CI_Controller {
 		  write_file($dump_filename, $new_report);
 		  redirect(base_url($dump_filename), 'refresh');
 	}	
+	
 	
 	public function delete_soci()
 	{
