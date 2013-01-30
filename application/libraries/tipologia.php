@@ -11,17 +11,4 @@ class CI_tipologia
         );
     }
 
-    public function getItalyRegions()
-    {
-        $return = $this->getData();
-        return $return['Italy'];
-    }
-
-    public function getDataFromRegion($country, $region)
-    {
-    }
-
-    public function getDataFromCountry($country)
-    {
-    }
 }

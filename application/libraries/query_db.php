@@ -69,15 +69,7 @@ class CI_query_db	{
 			}
 		
 		
-		public function delete_socio($id = FALSE)  // cancella record socio per _id_socio
-		{
-			if ($id === FALSE)
-			{
-				echo 'seleziona utente da cancellare';
-			}
-				$this->db->where('id', $id);
-				$this->db->delete('soci');	
-			}
+
 		
 	
 }

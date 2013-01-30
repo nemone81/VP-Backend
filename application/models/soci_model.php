@@ -85,15 +85,20 @@ class Soci_model extends CI_Model {
 			'data_modifica' => $nowhuman,
 			);
 		$slug = $this->input->post('slug');
+		$id = $this->input->post('slug');
 		$this->db->where('slug', $slug);	
 		$this->db->update('soci', $up_data);
 	}
 
-	public function delete_soci()
+	public function delete_soci($id = FALSE)  // cancella record socio per _id_socio
 	{
-		$this->db->where('id',$id);
-		$this->db->delete('soci');
-	}	
+		if ($id === FALSE)
+		{
+			echo 'seleziona utente da cancellare';
+		}
+			$this->db->where('id', $id);
+			$this->db->delete('soci');	
+		}
 	
 }
 

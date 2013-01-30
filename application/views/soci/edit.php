@@ -115,13 +115,17 @@
                                     <textarea class="span6" rows="3" id="inputRemarks" name="note" /><?php echo $soci_item['note']?></textarea>
                                  </div>
                               </div>
+
+                              <input type="hidden" name="slug" value="<?php echo $soci_item['slug']?>" />
+                              <input type="hidden" name="edit" value="casa" />
                               
                               <div class="form-actions">
                                  <button type="submit" class="btn btn-primary">Salva</button>
                                  <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['slug']) ?>'">Cancel</button>
                               </div>
                               
-                              <input type="hidden" name="slug" value="<?php echo $soci_item['slug']?>" />
+
+
                            </form>
                            <!-- END FORM-->				
                         </div>

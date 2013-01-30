@@ -19,7 +19,7 @@ class Soci extends CI_Controller {
 	}
 	
 
-	public function view($slug,$id)
+	public function view($slug,$id)  
 	{
 		$data = array();
 		$data['soci_item'] = $this->soci_model->get_soci($slug);
@@ -95,8 +95,10 @@ class Soci extends CI_Controller {
 		else
 		{
 			$data['title'] = 'Dati modificati';
+
 			$this->soci_model->update_soci();
 			$data['soci_item'] = $this->soci_model->get_soci($slug);
+			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('soci/success_edit', $data);
@@ -107,22 +109,23 @@ class Soci extends CI_Controller {
 
 	public function get_dump_soci()
 	{
-		  $this->load->dbutil();
-		  $this->load->helper('file');
-		  $report = $this->soci_model->dump_soci();
-		  $new_report = $this->dbutil->csv_from_result($report);
-		  $dump_filename = 'dump/Lista_Soci_'.unix_to_human(time()).'.csv';
-		  write_file($dump_filename, $new_report);
-		  redirect(base_url($dump_filename), 'refresh');
+		$this->load->dbutil();
+		$this->load->helper('file');
+		$report = $this->soci_model->dump_soci();
+		$new_report = $this->dbutil->csv_from_result($report);
+		$dump_filename = 'dump/Lista_Soci_'.unix_to_human(time()).'.csv';
+		write_file($dump_filename, $new_report);
+		redirect(base_url($dump_filename), 'refresh');
 	}	
 	
 	
-	public function delete_soci()
+	public function delete_soci($id)
 	{
 		$data['title'] = 'Elimina dati';
-		$this->soci_model->delete_soci();
+		$this->soci_model->delete_soci($id);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);	
+		//$this->load->view('templates/yes', $data);	
 		$this->load->view('templates/footer');	  
 	}
 	
