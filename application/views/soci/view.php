@@ -2,7 +2,7 @@
 	
 	<div class="widget">
 		<div class="widget-title">
-			<h4><i class="icon-sign-blank"> </i> Scheda Socio<?php //echo $soci_item['nome'].' '.$soci_item['cognome']; ?></h4>
+			<h4><i class="icon-sign-blank"> </i> Scheda Socio</h4>
 			<span class="tools">
 			<a href="javascript:;" class="icon-chevron-down"></a>
 			<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
@@ -12,10 +12,8 @@
 		</div>
 		<div class="widget-body">
 		
-			<?php //echo $soci_item['success'] ?>
 			<?php include 'soci_details_snippet.php'; ?>
 			
-	
 			<div style="fmargin-left:100px">			
 				<button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['slug']."/".$soci_item['id']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati </button>
 			</div>
@@ -32,29 +30,16 @@
 			<div style="clear:both">	
 			</div>		
 			<button class="btn" onclick="location.href='<?php echo base_url('index.php/abbonamenti/create?id_socio='.$soci_item['id'].'&nome='.$soci_item['nome'].'&cognome='.$soci_item['cognome'].'&slug='.$soci_item['slug'].'&tipo='.$soci_item['tipo']) ?>'"><i class="icon-pencil icon-white"></i> Aggiungi Abbonamento </button><span style="color:grey">		
-			</div>	
-</div>	
+		</div>	
+	</div>	
 </div>	
 					
 <div class="widget">
 	<div class="widget-title">
 		<h4><i class="icon-sign-blank"> </i>Storico Abbonamenti di <?php echo $soci_item['nome'].' '.$soci_item['cognome']; ?></h4>
-		<span class="tools">
-		<a href="javascript:;" class="icon-chevron-down"></a>
-		<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
-		<a href="javascript:;" class="icon-refresh"></a>		
-		</span>							
 	</div>
 	<div class="widget-body">
 		<div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
-		
-		<?php // print_r($tipo_abbonamenti) ?>
-		<br>
-
-
-
-		
-				
 			<table class="table table-striped table-bordered" id="sample_1">
 				<thead>
 					<tr>
@@ -66,17 +51,14 @@
 						<th class="hidden-phone" style="width: 120px;">Acquisto</th>
 					</tr>
 				</thead>
-				<tbody>
-				
+				<tbody> 		
 				<?php krsort($abbonamenti);
-				
-				 foreach ($abbonamenti as $abbonamenti_item): ?>
+					foreach ($abbonamenti as $abbonamenti_item): ?>
 				<tr class="odd gradeX">
 					<td class="center">
 						<a href="" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
 						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
 					</td>
-					
 					<td><?php echo $nome_abbonamenti[$abbonamenti_item['codice_abbonamento']] ?></td>
 					<td class="hidden-phone" ><?php echo $abbonamenti_item['codice_abbonamento'] ?></td>
 					<td>
@@ -93,7 +75,7 @@
 					<td><?php echo $abbonamenti_item['note'] ?></td>
 					<td class="hidden-phone" ><?php echo $abbonamenti_item['data_creazione'] ?></td>
 				</tr>
-				<?php endforeach ?>
+				<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>

@@ -102,12 +102,10 @@
 			                  <div class="control-group">
 			                     <label class="control-label" >Certificato Medico</label>
 			                     <div class="controls">
-			                        <select class="span2" data-placeholder="Scegli" tabindex="1" name="certificato_medico" id="certificato_medico"/>
-			                           <option value="Assente">Assente</option>
-			                           <option value="Presente">Presente</option>
-			                        </select>
+			                        <input class="input-small date-picker" size="16" type="text" value="<?php echo $soci_item['certificato_medico']?>" name="certificato_medico" data-date-format="yyyy-mm-dd"/>
 			                     </div>
 			                  </div>
+                              
                               
                               <div class="control-group">
                                  <label class="control-label" for="inputRemarks">Note</label>
