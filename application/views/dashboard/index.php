@@ -1,8 +1,9 @@
 <!-- BEGIN PAGE CONTENT-->
 <div id="page" class="dashboard">
+	<!-- BEGIN ROW-->
 	<div class="row-fluid">
 		<div class="span12">
-			<!-- BEGIN EXAMPLE TABLE PORTLET-->
+			<!-- BEGIN WIDGET ISCRIZIONI SCADUTE-->
 			<div class="widget">
 				<div class="widget-title">
 					<h4><i class="icon-list"> </i>Iscrizioni, Abbonamenti Annuali, Trimestrali: Scaduti negli ultimi 60 giorni</h4>
@@ -52,9 +53,133 @@
 						</table>
 					</div>
 				</div>
-			<!-- END EXAMPLE TABLE PORTLET-->
+			</div>
+			<!-- END WIDGET ISCRIZIONI SCADUTE-->
 		</div>
 	</div>
+	<!-- END ROW-->
+	
+	<!-- BEGIN ROW-->
+	<div class="row-fluid">
+		<div class="span6">
+			<!-- BEGIN SAMPLE TABLE PORTLET-->
+			<div class="widget">
+				<div class="widget-title">
+					<h4><i class="icon-reorder"></i>Numeri</h4>
+					<span class="tools">
+					<a href="javascript:;" class="icon-chevron-down"></a>
+					<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+					<a href="javascript:;" class="icon-refresh"></a>		
+					<a href="javascript:;" class="icon-remove"></a>
+					</span>							
+				</div>
+				<div class="widget-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th class="hidden-phone">Username</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Totali Tesserati</td>
+								<td>Totali Tesserati Attivi</td>
+								<td class="hidden-phone">makr124</td>
+								<td><span class="label label-success">Approved</span></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Jacob</td>
+								<td>Nilson</td>
+								<td class="hidden-phone">jac123</td>
+								<td><span class="label label-info">Pending</span></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Larry</td>
+								<td>Cooper</td>
+								<td class="hidden-phone">lar</td>
+								<td><span class="label label-warning">Suspended</span></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Sandy</td>
+								<td>Lim</td>
+								<td class="hidden-phone">sanlim</td>
+								<td><span class="label label-danger">Blocked</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END SAMPLE TABLE PORTLET-->
+		</div>
+		<div class="span6">
+			<!-- BEGIN CONDENSED TABLE PORTLET-->
+			<div class="widget">
+				<div class="widget-title">
+					<h4><i class="icon-reorder"></i>Condensed Table</h4>
+					<span class="tools">
+					<a href="javascript:;" class="icon-chevron-down"></a>
+					<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
+					<a href="javascript:;" class="icon-refresh"></a>		
+					<a href="javascript:;" class="icon-remove"></a>
+					</span>							
+				</div>
+				<div class="widget-body">
+					<table class="table table-condensed table-hover">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th class="hidden-phone">Username</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td class="hidden-phone">makr124</td>
+								<td><span class="label label-success">Approved</span></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Jacob</td>
+								<td>Nilson</td>
+								<td class="hidden-phone">jac123</td>
+								<td><span class="label label-info">Pending</span></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Larry</td>
+								<td>Cooper</td>
+								<td class="hidden-phone">lar</td>
+								<td><span class="label label-warning">Suspended</span></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Sandy</td>
+								<td>Lim</td>
+								<td class="hidden-phone">sanlim</td>
+								<td><span class="label label-danger">Blocked</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- END CONDENSED TABLE PORTLET-->
+		</div>
+	</div>
+	<!-- END ROW-->
+</div>
 </div>
 <!-- END PAGE CONTAINER-->
 </div>
