@@ -33,7 +33,7 @@ class Soci extends CI_Controller {
 		$data['tipologia'] = $this->tipologia->getData();
 		$data['abbonamenti'] = $this->query_db->get_abbonamenti($id);
 		$data['abbonamenti_scaduti'] = $this->query_db->get_abbonamenti_scaduti();
-		$data['tipo_abbonamenti'] = $this->query_db->get_tipo_abbonamenti();
+		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/view', $data);

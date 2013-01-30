@@ -13,6 +13,8 @@ class Dashboard extends CI_Controller {
 		$data['title'] = 'Lista Soci';
 		$data['tipologia'] = $this->tipologia->getData();
 		$data['abbonamenti_scaduti'] = $this->query_db->get_abbonamenti_scaduti();
+		$data['nome_soci'] = $this->query_db->get_nome_soci();
+		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('dashboard/index', $data);

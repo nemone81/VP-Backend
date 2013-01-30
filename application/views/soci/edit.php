@@ -38,9 +38,9 @@
                                  <label class="control-label" >Tipo</label>
                                  <div class="controls">
                                     <select class="span2" data-placeholder="Scegli" tabindex="1" name="tipo" id="tipo">
-                                       <option value="1">Standard</option>
-                                       <option value="2">Universitario</option>
-                                       <option value="3">Bambino</option>
+                                       <option value="S">Standard</option>
+                                       <option value="U">Universitario</option>
+                                       <option value="B">Bambino</option>
                                     </select>
                                  </div>
                               </div>

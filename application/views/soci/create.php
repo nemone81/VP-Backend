@@ -23,7 +23,6 @@
                      <label class="control-label" for="cognome">Cognome</label>
                      <div class="controls">
                         <input type="text" class="span4" id="input1" name="cognome"/>
-                        <span class="help-inline">Inserisci il Cognome</span>
                      </div>
                   </div>
                   

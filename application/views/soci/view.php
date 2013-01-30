@@ -18,15 +18,14 @@
 			</div>
 
 			<hr>
-			<h5>Abbonamento:</h5>
+			<h5>Iscrizione:</h5>
 			<div style="float:left">
 				<div class="alert alert-block fade in"><class="alert-heading"><i class=" icon-list-alt"> </i>Scadenza Iscrizione: <?php echo $soci_item['data_nascita']?></div>
-				<p><i class="icon-map-marker"> </i>Abbonamento: Trimestrale con Corso scadenza: Marzo 2013 - Modifica</p>
 			</div>	
 
 			<div style="clear:both">	
 			</div>		
-			<button class="btn" onclick="location.href='<?php echo base_url('index.php/abbonamenti/create?id_socio='.$soci_item['id'].'&nome='.$soci_item['nome'].'&cognome='.$soci_item['cognome'].'&slug='.$soci_item['slug'].'&tipo='.$soci_item['tipo']) ?>'"><i class="icon-pencil icon-white"></i> Aggiungi Abbonamento </button><span style="color:grey">   ultima modifica: <?php echo $soci_item['data_modifica']?></span>		
+			<button class="btn" onclick="location.href='<?php echo base_url('index.php/abbonamenti/create?id_socio='.$soci_item['id'].'&nome='.$soci_item['nome'].'&cognome='.$soci_item['cognome'].'&slug='.$soci_item['slug'].'&tipo='.$soci_item['tipo']) ?>'"><i class="icon-pencil icon-white"></i> Aggiungi Abbonamento </button><span style="color:grey">		
 			</div>	
 </div>	
 </div>	
@@ -56,9 +55,9 @@
 						<th style="width: 50px;">Azioni</th>
 						<th>Abbonamento</th>
 						<th class="hidden-phone" style="width: 80px;">Codice</th>
-						<th style="width: 120px;">Data Scadenza</th>
+						<th style="width: 120px;">Scadenza</th>
 						<th>Note</th>
-						<th class="hidden-phone" style="width: 120px;">Data Acquisto</th>
+						<th class="hidden-phone" style="width: 120px;">Acquisto</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -70,9 +69,19 @@
 						<a href="" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
 					</td>
 					
-					<td><?php echo $tipo_abbonamenti[$abbonamenti_item['id_abbonamento']] ?></td>
-					<td class="hidden-phone" ><?php echo $abbonamenti_item['id_abbonamento'] ?></td>
-					<td><?php echo substr($abbonamenti_item['scadenza'],0,10) ?></td>
+					<td><?php echo $nome_abbonamenti[$abbonamenti_item['codice_abbonamento']] ?></td>
+					<td class="hidden-phone" ><?php echo $abbonamenti_item['codice_abbonamento'] ?></td>
+					<td>
+						<?php if (strpos(($abbonamenti_item['codice_abbonamento']),'M') !== false || strpos(($abbonamenti_item['codice_abbonamento']),'T') !== false) {
+						$mesi = array("Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", 
+						"Luglio", "Agosto", "Settembre", "Ottobre","Novembre", "Dicembre");
+						$mese_scadenza = date_format(date_create($abbonamenti_item['scadenza']), 'n');
+						$mese_scadenza -= 1;
+						echo $mesi[$mese_scadenza].' - '.date_format(date_create($abbonamenti_item['scadenza']), 'Y');
+					 	} else {
+						echo date_format(date_create($abbonamenti_item['scadenza']), 'Y-m-d');
+						} ?>
+					</td>
 					<td><?php echo $abbonamenti_item['note'] ?></td>
 					<td class="hidden-phone" ><?php echo $abbonamenti_item['data_creazione'] ?></td>
 				</tr>

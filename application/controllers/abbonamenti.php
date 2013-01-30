@@ -43,7 +43,6 @@ class Abbonamenti extends CI_Controller {
 		$data['title'] = 'Inserisi un abbonamento';
 		$data['tipologia'] = $this->tipologia->getData();
 		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
-	//	$this->form_validation->set_rules('scadenza', 'scadenza', 'required');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -51,13 +50,14 @@ class Abbonamenti extends CI_Controller {
 			$this->load->view('abbonamenti/abb_create_script', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('abbonamenti/abb_create', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer_form');
 		}
 		else
 		{
+			$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
+			$data['nome_soci'] = $this->query_db->get_nome_soci();
 			$this->abbonamenti_model->set_abbonamenti();
 			$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti();
-			//$datas['soci'] = $this->soci_model->get_soci();
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success', $data);

@@ -22,8 +22,7 @@
 			<div style="clear:both">
 			<hr>
             <button class="btn" onclick="location.href='<?php // echo base_url('index.php/abbonamenti/edit/'.$abbonamenti_item['slug']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
-            <button class="btn btn-info" onclick="location.href='<?php // echo base_url('index.php/abbonamenti/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo abbonamentio</button><br><br><p style="color:grey"> creazione scheda: <?php // echo $abbonamenti_item['data_creazione']?></p>
-            </div>	
+            <button class="btn btn-info" onclick="location.href='<?php // echo base_url('index.php/abbonamenti/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo abbonamentio</button><br><br><p style="color:grey">            </div>	
         </div>
    </div>	
 </div>	
