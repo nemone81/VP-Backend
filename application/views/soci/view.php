@@ -1,4 +1,5 @@
 <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+	
 	<div class="widget">
 		<div class="widget-title">
 			<h4><i class="icon-sign-blank"> </i> Scheda Socio<?php //echo $soci_item['nome'].' '.$soci_item['cognome']; ?></h4>
@@ -12,14 +13,6 @@
 		<div class="widget-body">
 		
 			<?php //echo $soci_item['success'] ?>
-			<div class="alert alert-success">
-				<button class="close" data-dismiss="alert">×</button>
-				<strong>Dati modificati con successo.</strong>
-				<?php echo $soci_item['slug'] ?>
-			</div>	
-		
-		
-		
 			<?php include 'soci_details_snippet.php'; ?>
 			
 	
@@ -28,9 +21,12 @@
 			</div>
 
 			<hr>
-			<h5>Iscrizione:</h5>
 			<div style="float:left">
-				<div class="alert alert-block fade in"><class="alert-heading"><i class=" icon-list-alt"> </i>Scadenza Iscrizione: <?php echo $soci_item['data_nascita']?></div>
+				<div class="alert alert-block fade in"><class="alert-heading"><i class=" icon-list-alt"> </i>Scadenza Iscrizione: 
+				<?php $scadenza_iscrizione = $ultima_iscrizione[0]['scadenza'];
+					  echo date_format(date_create($scadenza_iscrizione), 'Y-m-d');
+					  ?>
+				</div>
 			</div>	
 
 			<div style="clear:both">	
@@ -72,11 +68,13 @@
 				</thead>
 				<tbody>
 				
-				<?php foreach ($abbonamenti as $abbonamenti_item): ?>
+				<?php krsort($abbonamenti);
+				
+				 foreach ($abbonamenti as $abbonamenti_item): ?>
 				<tr class="odd gradeX">
 					<td class="center">
 						<a href="" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
-						<a href="" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
+						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
 					</td>
 					
 					<td><?php echo $nome_abbonamenti[$abbonamenti_item['codice_abbonamento']] ?></td>

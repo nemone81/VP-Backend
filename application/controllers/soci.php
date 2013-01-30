@@ -34,6 +34,7 @@ class Soci extends CI_Controller {
 		$data['abbonamenti'] = $this->query_db->get_abbonamenti($id);
 		$data['abbonamenti_scaduti'] = $this->query_db->get_abbonamenti_scaduti();
 		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
+		$data['ultima_iscrizione'] = $this->query_db->get_ultima_iscrizione($id);		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/view', $data);
@@ -124,8 +125,8 @@ class Soci extends CI_Controller {
 		$data['title'] = 'Elimina dati';
 		$this->soci_model->delete_soci($id);
 		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);	
-		//$this->load->view('templates/yes', $data);	
+		$this->load->view('templates/sidebar', $data, $successo);	
+		$this->load->view('templates/success', $data);	
 		$this->load->view('templates/footer');	  
 	}
 	

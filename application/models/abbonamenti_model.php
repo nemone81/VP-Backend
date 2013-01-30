@@ -62,6 +62,16 @@ class Abbonamenti_model extends CI_Model {
 		$this->db->update('abbonamenti', $up_data);
 	}
 
+	public function delete_abbonamenti($id = FALSE)  // cancella record abbonamenti per id_abbonamento
+	{
+		if ($id === FALSE)
+		{
+			echo 'seleziona utente da cancellare';
+		}
+			$this->db->where('id', $id);
+			$this->db->delete('abbonamenti');	
+		}	
+
 }
 
 
