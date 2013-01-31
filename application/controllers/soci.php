@@ -19,10 +19,10 @@ class Soci extends CI_Controller {
 	}
 	
 
-	public function view($slug,$id)  
+	public function view($id)  
 	{
 		$data = array();
-		$data['soci_item'] = $this->soci_model->get_soci($slug);
+		$data['soci_item'] = $this->soci_model->get_soci_by_id($id);
 		
 		if (empty($data['soci_item']))
 		{
@@ -74,7 +74,7 @@ class Soci extends CI_Controller {
 	}
 	
 	
-	public function edit($slug)
+	public function edit($id)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -86,7 +86,7 @@ class Soci extends CI_Controller {
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data['title'] = 'Modifica dati';
-			$data['soci_item'] = $this->soci_model->get_soci($slug);
+			$data['soci_item'] = $this->soci_model->get_soci_by_id($id);
 			$this->load->view('templates/header', $data);
 			$this->load->view('soci/edit_script', $data);
 			$this->load->view('templates/sidebar', $data);
@@ -98,7 +98,7 @@ class Soci extends CI_Controller {
 			$data['title'] = 'Dati modificati';
 
 			$this->soci_model->update_soci();
-			$data['soci_item'] = $this->soci_model->get_soci($slug);
+			$data['soci_item'] = $this->soci_model->get_soci_by_id($id);
 			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
