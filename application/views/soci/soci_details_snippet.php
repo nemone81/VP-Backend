@@ -11,7 +11,13 @@
 		}?>
 	il: </span><?php echo $soci_item['data_nascita'].' a '.$soci_item['luogo_nascita']?></p>
 	<p><span style="color:grey"><i class="fntsz14 icon-heart"> </i>Sesso: </span><?php echo $soci_item['sesso']?></p>
-	<p><span style="color:grey"><i class="fntsz14 icon-medkit"> </i>Scadenza Certificato: </span><?php echo $soci_item['certificato_medico']?></p>
+	<p><span style="color:grey"><i class="fntsz14 icon-medkit"> </i>Scadenza Certificato: </span>
+		<?php if ($soci_item['certificato_medico'] == 0000-00-00) {
+			echo '<strong>Assente</strong>'; 
+			} else {
+			echo $soci_item['certificato_medico'];
+			};?>
+	</p>
 </div>
 <div style="float:left">
 	<p><span style="color:grey"><i class="fntsz14 icon-envelope"> </i>Email: <a href="mailto:<?php echo $soci_item['email']?>"><?php echo $soci_item['email']?></a></p> 
