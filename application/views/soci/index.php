@@ -28,7 +28,8 @@
 								</tr>
 							</thead>
 							<tbody>
-							<?php foreach ($soci as $soci_item): ?>
+							<?php krsort($soci);
+							foreach ($soci as $soci_item): ?>
 							<tr class="odd gradeX">
 								<td class="center">
 									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'].'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;

@@ -8,24 +8,19 @@ class Abbonamenti_model extends CI_Model {
 	}
 
 
-	public function get_abbonamenti($slug = FALSE)
+	public function get_abbonamenti($id = FALSE) // restituisce abbonamenti non cancellati
 	{
-		if ($slug === FALSE)
+		if ($id === FALSE)
 		{
+			$this->db->where('delete', 0);
 			$query = $this->db->get('abbonamenti');
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('abbonamenti', array('slug' => $slug));
+			$this->db->where('delete', 0);
+		$query = $this->db->get_where('abbonamenti', array('id' => $id));
 		return $query->row_array();
 	}
 	
-	
-    public function get_soci_by_id($id)
-	{
-		$query = $this->db->get_where('soci', array('id' => $id));
-		return $query->row_array();
-	}
-		
 	public function set_abbonamenti()
 	{
 		$this->load->helper('url');
@@ -44,8 +39,10 @@ class Abbonamenti_model extends CI_Model {
 		return $this->db->insert('abbonamenti', $data);
 	}
 	
-	public function update_abbonamenti()
+	public function update_abbonamenti()//($id)
 	{
+		//$tipologia_id_socio = $this->soci_model->get_tipologia_id($id)
+		
 		$this->load->helper('url');
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
 		$up_data = array(
@@ -53,23 +50,26 @@ class Abbonamenti_model extends CI_Model {
 			'scadenza' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza_mese').' 23:59:59',
 			'note' => $this->input->post('note'),
 			'data_modifica' => $nowhuman,
-			'note' => $this->input->post('note'),
 			'data_acquisto' => $this->input->post('data_acquisto'),
-			'data_modifica' => $nowhuman,
 			);
 		$slug = $this->input->post('slug');
 		$this->db->where('slug', $slug);	
 		$this->db->update('abbonamenti', $up_data);
 	}
 
-	public function delete_abbonamenti($id = FALSE)  // cancella record abbonamenti per id_abbonamento
+	public function delete_abbonamenti($id = FALSE)  // setta status delete su 1
 	{
 		if ($id === FALSE)
 		{
 			echo 'seleziona utente da cancellare';
 		}
+		
+			$data = array(
+			'delete' => 1 ,
+			);
 			$this->db->where('id', $id);
-			$this->db->delete('abbonamenti');	
+			$this->db->update('abbonamenti', $data);
+		//	$this->db->delete('abbonamenti');	
 		}	
 
 }

@@ -15,14 +15,14 @@
                   <div class="control-group">
                      <label class="control-label" for="nome">Nome</label>
                      <div class="controls">
-                        <input type="text" class="span3" id="input1" name="nome"/>
+                        <input type="text" class="span3" id="input1" name="nome" placeholder="Obbligatorio"/>
                      </div>
                   </div>
                                                 
                   <div class="control-group">
                      <label class="control-label" for="cognome">Cognome</label>
                      <div class="controls">
-                        <input type="text" class="span4" id="input1" name="cognome"/>
+                        <input type="text" class="span4" id="input1" name="cognome" placeholder="Obbligatorio"/>
                      </div>
                   </div>
                   
@@ -47,7 +47,7 @@
                   <div class="control-group">
                      <label class="control-label" >Data di Nascita</label>
                      <div class="controls">
-                        <input class="input-small date-picker" size="16" type="text" value="1981-12-12" name="data_nascita" data-date-format="yyyy-mm-dd"/>
+                        <input class="input-medium date-picker" size="16" type="text" value="1981-12-12" name="data_nascita" data-date-format="yyyy-mm-dd"/>
                      </div>
                   </div>
                   
@@ -77,11 +77,20 @@
                      <label class="control-label" for="input7">Email</label>
                      <div class="controls">
                         <div class="input-prepend ">
-                           <span class="add-on">@</span><input class="input-medium span4" id="input7" type="text" placeholder="Indirizzo Email" name="email"/>			 
+                           <span class="add-on">@</span><input class="input-medium span6" id="input7" type="text" placeholder="Indirizzo Email" name="email"/>			 
                         </div>
                      </div>
                   </div>
                   
+					<div class="control-group">
+						 <label class="control-label" for="input7">Email Address Input</label>
+						 <div class="controls">
+						    <div class="input-prepend">
+						       <span class="add-on">@</span><input class="input-medium" id="input7" type="text" placeholder="Email Address">			 
+						    </div>
+						 </div>
+					</div>
+                                                
                   <div class="control-group">
                      <label class="control-label" for="input6">Telefono</label>
                      <div class="controls">

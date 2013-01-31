@@ -26,6 +26,7 @@ class Abbonamenti extends CI_Controller {
 		{
 			show_404();
 		}
+		
 	//	$data['title'] = $data['abbonamenti_item']['title'];
 		$data['title'] = 'Scheda abbonamentio';
 		$this->load->view('templates/header', $data);
@@ -65,19 +66,17 @@ class Abbonamenti extends CI_Controller {
 		}
 	}
 	
-	public function edit($slug)
+	public function edit($id)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Modifica dati';
 		$data['tipologia'] = $this->tipologia->getData();
-		$this->form_validation->set_rules('nome', 'nome', 'required');
-		$this->form_validation->set_rules('cognome', 'cognome', 'required');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
-			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($slug);
+			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($id);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('abbonamenti/abb_edit');
@@ -86,7 +85,7 @@ class Abbonamenti extends CI_Controller {
 		else
 		{
 			$this->abbonamenti_model->update_abbonamenti();
-			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($slug);
+			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($id);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success_edit', $data);

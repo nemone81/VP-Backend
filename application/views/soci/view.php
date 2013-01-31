@@ -56,10 +56,12 @@
 					foreach ($abbonamenti as $abbonamenti_item): ?>
 				<tr class="odd gradeX">
 					<td class="center">
-						<a href="" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
+						<a href="<?php echo base_url('index.php/abbonamenti/edit/'.$abbonamenti_item['id']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
 						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
-					</td>
+					
 					<td><?php echo $nome_abbonamenti[$abbonamenti_item['codice_abbonamento']] ?></td>
+
+
 					<td class="hidden-phone" ><?php echo $abbonamenti_item['codice_abbonamento'] ?></td>
 					<td>
 						<?php if (strpos(($abbonamenti_item['codice_abbonamento']),'M') !== false || strpos(($abbonamenti_item['codice_abbonamento']),'T') !== false) {

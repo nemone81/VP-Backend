@@ -14,27 +14,30 @@ class CI_query_db	{
 		{
 			if ($id_socio === FALSE)
 			{
+				$this->db->where('delete', 0);
 				$query = $this->db->get('abbonamenti');
 				return $query->result_array();
 			}
+				$this->db->where('delete', 0);
 				$query = $this->db->get_where('abbonamenti', array('id_socio' => $id_socio));
 				return $query->result_array();		
 			}
 			
 		public function get_ultima_iscrizione($id) // 
 		{
-				$this->db->like('codice_abbonamento', 'I' ); // tipologia Iscrizione
-				$this->db->where('id_socio', $id);
-				$this->db->select('abbonamenti.*', FALSE); // seleziona tutte le colonne
-				$this->db->select_max('scadenza'); 
-				$query = $this->db->get('abbonamenti');
-				return $query->result_array();
+			$this->db->like('codice_abbonamento', 'I' ); // tipologia Iscrizione
+			$this->db->where('id_socio', $id);
+			$this->db->select('abbonamenti.*', FALSE); // seleziona tutte le colonne
+			$this->db->select_max('scadenza'); 
+			$query = $this->db->get('abbonamenti');
+			return $query->result_array();
 			}		
 			
 		public function get_abbonamenti_scaduti() // restituisce Iscrizione, Trimestrali o Annuali scaduti negli ultim 60 giorni
 		{
 			$now = unix_to_human(time());
-			$mesidue = unix_to_human((time()-5184000)); // la data di oggi -60 giorni 
+			$mesidue = unix_to_human((time()-5184000)); // la data di oggi -60 giorni
+			$this->db->where('delete', 0);
 			$this->db->where('scadenza <', $now); 
 			$this->db->where('scadenza >', $mesidue); // 
 			$this->db->like('codice_abbonamento', 'I' ); // tipologia Iscrizione
@@ -79,7 +82,4 @@ class CI_query_db	{
 			}
 		
 		
-
-		
-	
 }

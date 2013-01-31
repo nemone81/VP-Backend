@@ -1739,6 +1739,7 @@ ul.item-list.todo li .actions {
 }
 
 /* fabio */
+
 .control-label {
 float: left;
 margin-top: 5px;
@@ -1746,6 +1747,7 @@ margin-right: 10px;
 text-align: right;
 width: 170px;
 }
+
 
 .fntsz14 {
 font-size: 14px	

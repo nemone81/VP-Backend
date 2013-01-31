@@ -125,7 +125,7 @@ class Soci extends CI_Controller {
 		$data['title'] = 'Elimina dati';
 		$this->soci_model->delete_soci($id);
 		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data, $successo);	
+		$this->load->view('templates/sidebar', $data);	
 		$this->load->view('templates/success', $data);	
 		$this->load->view('templates/footer');	  
 	}

@@ -119,7 +119,7 @@
                               
                               <div class="form-actions">
                                  <button type="submit" class="btn btn-primary">Salva</button>
-                                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['slug']) ?>'">Cancel</button>
+                                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['slug'].'/'.$soci_item['tessera']) ?>'">Cancel</button>
                               </div>
                               
 

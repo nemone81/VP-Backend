@@ -40,6 +40,7 @@
 */
 //$route['dump/(:any)'] = 'dump/';
 $route['dashboard'] = 'dashboard';
+$route['abbonamenti/edit/(:any)'] = 'abbonamenti/edit/$1';
 $route['abbonamenti/delete_abbonamenti/(:any)'] = 'abbonamenti/delete_abbonamenti/$1';
 $route['abbonamenti/create'] = 'abbonamenti/create';
 $route['soci/get_dump_soci'] = 'soci/get_dump_soci';
