@@ -71,7 +71,7 @@ class Soci_model extends CI_Model {
 		return $this->db->insert('soci', $data);
 	}
 	
-	public function update_soci()
+	public function update_soci($id)
 	{
 		$this->load->helper('url');
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
@@ -91,9 +91,9 @@ class Soci_model extends CI_Model {
 			'note' => $this->input->post('note'),
 			'data_modifica' => $nowhuman,
 			);
-		$slug = $this->input->post('slug');
-		$id = $this->input->post('slug');
-		$this->db->where('slug', $slug);	
+		//$slug = $this->input->post('slug');
+		//$id = $this->input->post('slug');
+		$this->db->where('id', $id );	
 		$this->db->update('soci', $up_data);
 	}
 
