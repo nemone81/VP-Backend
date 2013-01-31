@@ -32,12 +32,12 @@
 							foreach ($soci as $soci_item): ?>
 							<tr class="odd gradeX">
 								<td class="center">
-									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'].'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;
-									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['slug'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica scheda Socio"><i class="icon-pencil"></i></a>&nbsp;
+									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;
+									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica scheda Socio"><i class="icon-pencil"></i></a>&nbsp;
 									<a href="<?php echo base_url('index.php/soci/delete_soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina scheda Socio"><i class="icon-remove"></i></a>&nbsp;		
 								</td>
 								<td><?php echo $soci_item['tessera'] ?></td>
-								<td><a href="<?php echo base_url('index.php/soci').'/'.$soci_item['slug'].'/'.$soci_item['id']?>"><?php echo $soci_item['nome'] ?></a></td>
+								<td><a href="<?php echo base_url('index.php/soci').'/'.$soci_item['id']?>"><?php echo $soci_item['nome'] ?></a></td>
 								<td><?php echo $soci_item['cognome'] ?></td>
 								<td class="hidden-phone"><?php 
 								echo $tipologia[$soci_item['tipo']] ?></span></td>													
