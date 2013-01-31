@@ -11,7 +11,7 @@
                            <!-- BEGIN FORM-->
                            
 							<?php echo validation_errors(); ?>
-							<?php echo form_open('soci/edit/'.$soci_item['slug']) ?>
+							<?php echo form_open('soci/edit/'.$soci_item['id']) ?>
 						
                               <div class="control-group">
                                  <label class="control-label" for="nome">Nome</label>

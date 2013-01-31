@@ -97,12 +97,11 @@ class Soci extends CI_Controller {
 		{
 			$data['title'] = 'Dati modificati';
 
-			$this->soci_model->update_soci();
+			$this->soci_model->update_soci($id);
 			$data['soci_item'] = $this->soci_model->get_soci_by_id($id);
-			
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
-			$this->load->view('soci/success_edit', $data);
+			$this->load->view('soci/success_edit', $data, $id);
 			$this->load->view('templates/footer');
 		}
 	}

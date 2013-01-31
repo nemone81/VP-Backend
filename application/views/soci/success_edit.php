@@ -14,12 +14,12 @@
 			<div class="alert alert-success">
 				<button class="close" data-dismiss="alert">×</button>
 				<strong>Dati modificati con successo.</strong>
-				<?php echo $soci_item['slug'] ?>
+				<?php echo $soci_item['id'] ?>
 			</div>			
 			<?php include 'soci_details_snippet.php'; ?>
 			<div style="clear:both">
                	<hr>	
-                <button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['slug']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
+                <button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['id']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
 				<button class="btn btn-info" onclick="location.href='<?php echo base_url('index.php/soci/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo socio</button>
 			</div>	
 		</div>
