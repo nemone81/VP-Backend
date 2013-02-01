@@ -17,26 +17,25 @@
 				
 				             <?php echo validation_errors(); 
              		$attributes = array('class' => 'form-horizontal');
-             		echo form_open('abbonamenti/create', $attributes); ?>
-
-
+             		echo form_open('abbonamenti/create/'.$soci_item['id'], $attributes); ?>						
+			
 				 <p style="font-size: 15px;margin-left: 132px;"> Socio &nbsp 
-				 	<?php echo ($_GET['nome']).' '.($_GET['cognome'])?>
+				 	<?php echo $soci_item['nome'].' '.$soci_item['cognome']?>
 				 </p>
 				
 				 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp
-				 	<?php echo $tipologia[$_GET['tipo']] ?>
-				 </p>
+				 	<?php echo $tipologia[$soci_item['tipo']]?>
+			
 
 				<div class="control-group">
 				 <label class="control-label" >Abbonamento</label>
 				 <div class="controls">
 				    <select class="span2" id="abbonamento" data-placeholder="Scegli Abbonamento" tabindex="1" name="abbonamento">
-						<option value="I">Iscrizione</option>
-						<option value="K">Carnet</option>
 						<option value="M">Mensile</option>
 						<option value="T">Trimestrale</option>
 						<option value="A">Annuale</option>
+						<option value="K">Carnet</option>
+						<option value="I">Iscrizione</option>	
 					</select>
 				 </div>
 				</div>
@@ -52,9 +51,6 @@
 				 </div>
 				</div>
 				
-				<input type="hidden" name="slug" value="<?php //echo $soci_item['tipo']?>" />
-				
-
 				<div class="control-group">
 				 <label class="control-label" >Scadenza</label>
 				 <div class="controls">
@@ -72,9 +68,12 @@
 						<option value="11-30">Novembre</option>
 						<option value="12-31">Dicembre</option>
 					</select>
-					<input class="input-small" size="16" type="text" value="<?php echo date('Y', time());?>" name="data_scadenza_anno" data-date-format="yyyy"/>
+
+					
+					<input style="width: 40px;text-align: center;" size="16" type="text" value="<?php echo date('Y', time());?>" name="data_scadenza_anno" data-date-format="yyyy"/>
 				 </div>
-                  
+				 <div style="clear:float;clear: both;margin-bottom: 17px;"></div>				
+			
 				<div class="control-group">
 				 <label class="control-label" >Data di acquisto</label>
 				 <div class="controls">
@@ -91,11 +90,12 @@
 				                      
 				<div class="form-actions">
 				 <button type="submit" class="btn btn-primary">Salva</button>
-                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.($_GET['slug']))?>'">Cancel</button>
+                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['id']) ?>'">Cancel</button>
+
 				</div>
                 
-                <input type="hidden" name="id_socio" value="<?php echo ($_GET['id_socio'])?>" />
-                <input type="hidden" name="tipo" value="<?php echo ($_GET['tipo'])?>" />
+				<input type="hidden" name="id_socio" value="<?php echo $soci_item['id']?>" />
+                <input type="hidden" name="tipo" value="<?php echo $soci_item['tipo']?>" />
 
 				</form>
                <!-- END FORM-->				

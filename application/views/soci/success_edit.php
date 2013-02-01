@@ -4,7 +4,7 @@
 
 	<div class="widget">
 		<div class="widget-title">
-			<h4><i class="icon-sign-blank"> </i><?php echo $soci_item['nome'].' '.$soci_item['cognome']; ?></h4>
+			<h4><i class="icon-sign-blank"> </i>Scheda Socio</h4>
 			<span class="tools">
 			<a href="javascript:;" class="icon-chevron-down"></a>
 			<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
@@ -21,6 +21,7 @@
 			<?php include 'soci_details_snippet.php'; ?>
 			<div style="clear:both">
                	<hr>	
+               	<button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['id']) ?>'"><i class="icon-eye-open"></i> Vedi Scheda Socio</button>
                 <button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['id']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
 				<button class="btn btn-info" onclick="location.href='<?php echo base_url('index.php/soci/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo socio</button>
 			</div>	

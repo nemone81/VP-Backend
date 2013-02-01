@@ -1,10 +1,11 @@
 <?php
 class Abbonamenti extends CI_Controller {
-
+ 	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('abbonamenti_model');
+		$this->load->model('soci_model');
 	}
 
 	public function index()
@@ -36,15 +37,16 @@ class Abbonamenti extends CI_Controller {
 	}	
 	
 	
-	public function create()
+	public function create($id_socio)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Inserisi un abbonamento';
 		$data['tipologia'] = $this->tipologia->getData();
-		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
+		$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);				
 		
+		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
 		if ($this->form_validation->run() === FALSE)
 		{
 			$this->load->view('templates/header', $data);
@@ -59,6 +61,7 @@ class Abbonamenti extends CI_Controller {
 			$data['nome_soci'] = $this->query_db->get_nome_soci();
 			$this->abbonamenti_model->set_abbonamenti();
 			$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti();
+		//	$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti();
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success', $data);
@@ -66,28 +69,37 @@ class Abbonamenti extends CI_Controller {
 		}
 	}
 	
-	public function edit($id)
+	public function edit($id, $id_socio)
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
 		$data['title'] = 'Modifica dati';
 		$data['tipologia'] = $this->tipologia->getData();
-		
+
+		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
+		$data['nome_soci'] = $this->query_db->get_nome_soci();
+
+
+		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($id);
+			$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
+			$this->load->view('abbonamenti/abb_create_script', $data);
 			$this->load->view('abbonamenti/abb_edit');
 			$this->load->view('templates/footer');
 		}
 		else
 		{
-			$this->abbonamenti_model->update_abbonamenti();
+			$this->abbonamenti_model->update_abbonamenti($id);
 			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($id);
+			$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
+//			var_dump($data['abbonamenti_item']);
 			$this->load->view('abbonamenti/abb_success_edit', $data);
 			$this->load->view('templates/footer');
 		}

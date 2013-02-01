@@ -21,7 +21,9 @@
 			<?php include 'abbonamenti_details_snippet.php'; ?>
 			<div style="clear:both">
 			<hr>
-            <button class="btn" onclick="location.href='<?php echo base_url('index.php/abbonamenti/abb_edit/'.$abbonamenti_item['slug']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
+               	<button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['id']) ?>'"><i class="icon-eye-open"></i> Vedi Scheda Socio</button>
+
+            <button class="btn" onclick="location.href='<?php echo base_url('index.php/abbonamenti/abb_edit/'.$abbonamenti_item['id'].'/'.$soci_item['id']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
             <button class="btn btn-info" onclick="location.href='<?php // echo base_url('index.php/abbonamenti/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo abbonamentio</button><br><br><p style="color:grey">            </div>	
         </div>
    </div>	

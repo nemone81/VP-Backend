@@ -79,7 +79,7 @@
                                  <label class="control-label" for="input7">Email</label>
                                  <div class="controls">
                                     <div class="input-prepend ">
-                                       <span class="add-on">@</span><input class="input-medium span4" id="input7" type="text" placeholder="Indirizzo Email" name="email" value="<?php echo $soci_item['email']?>" />			 
+                                       <span class="add-on">@</span><input class="input-medium span12" id="input7" type="text" placeholder="Indirizzo Email" name="email" value="<?php echo $soci_item['email']?>" />			 
                                     </div>
                                  </div>
                               </div>
@@ -121,7 +121,7 @@
                               
                               <div class="form-actions">
                                  <button type="submit" class="btn btn-primary">Salva</button>
-                                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['slug'].'/'.$soci_item['tessera']) ?>'">Cancel</button>
+                                 <button type="button" class="btn" onclick="location.href='<?php echo base_url('index.php/soci/'.$soci_item['id']) ?>'">Cancel</button>
                               </div>
                               
 

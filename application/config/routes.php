@@ -42,7 +42,10 @@
 $route['dashboard'] = 'dashboard';
 $route['abbonamenti/edit/(:any)'] = 'abbonamenti/edit/$1';
 $route['abbonamenti/delete_abbonamenti/(:any)'] = 'abbonamenti/delete_abbonamenti/$1';
+$route['abbonamenti/abb_edit/(:any)'] = 'abbonamenti/abb_edit/$1';
+$route['abbonamenti/create/(:any)'] = 'abbonamenti/create/$1';
 $route['abbonamenti/create'] = 'abbonamenti/create';
+
 $route['soci/get_dump_soci'] = 'soci/get_dump_soci';
 $route['soci/create'] = 'soci/create';
 $route['soci/edit/(:any)'] = 'soci/edit/$1';
@@ -50,6 +53,7 @@ $route['soci/delete_soci'] = 'soci/delete_soci';
 $route['soci/delete_soci/(:any)'] = 'soci/delete_soci/$1';
 $route['soci/(:any)'] = 'soci/view/$1';
 $route['soci'] = 'soci';
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';
 $route['default_controller'] = "login";

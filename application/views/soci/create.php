@@ -78,7 +78,7 @@
                      <label class="control-label" for="input7">Email</label>
                      <div class="controls">
                         <div class="input-prepend ">
-                           <span class="add-on">@</span><input class="input-medium span6" id="input7" type="text" placeholder="Indirizzo Email" name="email"/>			 
+                           <span class="add-on">@</span><input class="input-medium span12" id="input7" type="text" placeholder="Indirizzo Email" name="email"/>			 
                         </div>
                      </div>
                   </div>
@@ -104,7 +104,7 @@
                   <div class="control-group">
                      <label class="control-label" >Certificato Medico</label>
                      <div class="controls">
-                        <input class="input-medium date-picker" size="16" type="text" value="" placeholder="Data di scadenza" Email" name="certificato_medico" data-date-format="yyyy-mm-dd"/>
+                        <input class="input-medium date-picker" size="16" type="text" value="" placeholder="Data di scadenza" name="certificato_medico" data-date-format="yyyy-mm-dd"/>
                      </div>
                   </div>
 
