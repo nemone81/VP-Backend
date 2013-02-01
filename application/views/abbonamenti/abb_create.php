@@ -15,8 +15,10 @@
             <div class="widget-body form">
 				<!-- BEGIN FORM-->
 				
-				<?php echo validation_errors(); ?>
-				<?php echo form_open('abbonamenti/create') ?>
+				             <?php echo validation_errors(); 
+             		$attributes = array('class' => 'form-horizontal');
+             		echo form_open('abbonamenti/create', $attributes); ?>
+
 
 				 <p style="font-size: 15px;margin-left: 132px;"> Socio &nbsp 
 				 	<?php echo ($_GET['nome']).' '.($_GET['cognome'])?>

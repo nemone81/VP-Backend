@@ -10,8 +10,10 @@
             <div class="widget-body form">
                <!-- BEGIN FORM-->
                
-             <?php echo validation_errors(); ?>
-             <?php echo form_open('abbonamenti/edit/'.$abbonamenti_item['id']) ?>
+             <?php echo validation_errors(); 
+             		$attributes = array('class' => 'form-horizontal');
+             		echo form_open('abbonamenti/edit/'.$abbonamenti_item['id'], $attributes); ?>
+
 
 			 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp "per ora id socio"
 			 	<?php echo $abbonamenti_item['id_socio']?>

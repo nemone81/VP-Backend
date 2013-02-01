@@ -20,7 +20,7 @@
 			<?php include 'soci_details_snippet.php'; ?>
 			<div style="clear:both">
 			<hr>
-            <button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['slug']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
+            <button class="btn" onclick="location.href='<?php echo base_url('index.php/soci/edit/'.$soci_item['id']) ?>'"><i class="icon-pencil icon-white"></i> Modifica i dati inseriti</button><span style="color:grey">
             <button class="btn btn-info" onclick="location.href='<?php echo base_url('index.php/soci/create'); ?>'"><i class="icon-plus icon-white"></i> Inserici un nuovo socio</button><br><br><p style="color:grey">
             </div>	
         </div>

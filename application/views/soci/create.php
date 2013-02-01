@@ -10,7 +10,8 @@
             <div class="widget-body form">
              <!-- BEGIN FORM-->
              <?php echo validation_errors(); ?>
-             <?php echo form_open('soci/create') ?>
+              <?php $attributes = array('class' => 'form-horizontal');
+	              echo form_open('soci/create', $attributes); ?>
 			
                   <div class="control-group">
                      <label class="control-label" for="nome">Nome</label>
@@ -82,14 +83,6 @@
                      </div>
                   </div>
                   
-					<div class="control-group">
-						 <label class="control-label" for="input7">Email Address Input</label>
-						 <div class="controls">
-						    <div class="input-prepend">
-						       <span class="add-on">@</span><input class="input-medium" id="input7" type="text" placeholder="Email Address">			 
-						    </div>
-						 </div>
-					</div>
                                                 
                   <div class="control-group">
                      <label class="control-label" for="input6">Telefono</label>

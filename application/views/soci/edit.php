@@ -11,8 +11,10 @@
                            <!-- BEGIN FORM-->
                            
 							<?php echo validation_errors(); ?>
-							<?php echo form_open('soci/edit/'.$soci_item['id']) ?>
-						
+							<?php $attributes = array('class' => 'form-horizontal');
+								echo form_open('soci/edit/'.$soci_item['id'], $attributes); ?>
+							
+													
                               <div class="control-group">
                                  <label class="control-label" for="nome">Nome</label>
                                  <div class="controls">
