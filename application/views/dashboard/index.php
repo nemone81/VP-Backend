@@ -30,7 +30,8 @@
 							<tbody>
 							<?php foreach ($abbonamenti_scaduti as $abbonamenti_scaduti_item): ?>
 							<tr class="odd gradeX">
-								<td><?php echo $nome_soci[$abbonamenti_scaduti_item['id_socio']] ?></td>
+								<td><a href="<?php echo base_url('index.php/soci').'/'.$abbonamenti_scaduti_item['id_socio'] ?>">
+								 <?php echo $nome_soci[$abbonamenti_scaduti_item['id_socio']] ?></a></td>
 								<td><?php echo $nome_abbonamenti[$abbonamenti_scaduti_item['codice_abbonamento']] ?></td>
 								<td><?php if (strpos(($abbonamenti_scaduti_item['codice_abbonamento']),'T') !== false) {
 									$mesi = array("Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", 
