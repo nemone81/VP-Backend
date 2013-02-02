@@ -21,7 +21,45 @@ class Abbonamenti_model extends CI_Model {
 		return $query->row_array();
 	}
 	
-	public function set_abbonamenti()
+	public function get_abbonamenti_id_socio($id_socio = FALSE) // restituisce Lista Abbonamenti opzionalmente per id_socio
+		{
+			if ($id_socio === FALSE)
+			{
+				$this->db->where('delete', 0);
+				$query = $this->db->get('abbonamenti');
+				return $query->result_array();
+			}
+				$this->db->where('delete', 0);
+				$query = $this->db->get_where('abbonamenti', array('id_socio' => $id_socio));
+				return $query->result_array();		
+			}
+			
+			
+	public function get_ultima_iscrizione($id) // 
+		{
+			$this->db->like('codice_abbonamento', 'I' ); // tipologia Iscrizione
+			$this->db->where('id_socio', $id);
+			$this->db->where('delete', 0);
+			$this->db->select('abbonamenti.*', FALSE); // seleziona tutte le colonne
+			$this->db->select_max('scadenza'); 
+			$query = $this->db->get('abbonamenti');
+			return $query->result_array();
+			}		
+			
+	public function get_abbonamenti_scaduti() // restituisce Iscrizione, Trimestrali o Annuali scaduti negli ultim 60 giorni
+		{
+			$now = unix_to_human(time());
+			$mesidue = unix_to_human((time()-5184000)); // la data di oggi -60 giorni
+			$this->db->where('delete', 0);
+			$this->db->where('scadenza <', $now); 
+			$this->db->where('scadenza >', $mesidue); // 
+			$this->db->not_like('codice_abbonamento', 'M' ); // tipologia Mensile
+			$this->db->not_like('codice_abbonamento', 'K' ); // tipologia Carnet
+			$query = $this->db->get('abbonamenti');
+			return $query->result_array();
+			}
+
+	public function set_abbonamenti() // insert sul db
 	{
 		$this->load->helper('url');
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
@@ -37,10 +75,8 @@ class Abbonamenti_model extends CI_Model {
 		return $this->db->insert('abbonamenti', $data);
 	}
 	
-	public function update_abbonamenti($id)//($id)
-	{
-		//$tipologia_id_socio = $this->soci_model->get_tipologia_id($id)
-		
+	public function update_abbonamenti($id)// update sul db
+	{		
 		$this->load->helper('url');
 		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
 		$up_data = array(

@@ -5,6 +5,7 @@ class Soci extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('soci_model');
+		$this->load->model('abbonamenti_model');
 	}
 
 	public function index()
@@ -28,13 +29,12 @@ class Soci extends CI_Controller {
 		{
 			show_404();
 		}
-	//	$data['title'] = $data['soci_item']['title'];
 		$data['title'] = 'Scheda Socio';
 		$data['tipologia'] = $this->tipologia->getData();
-		$data['abbonamenti'] = $this->query_db->get_abbonamenti($id);
-		$data['abbonamenti_scaduti'] = $this->query_db->get_abbonamenti_scaduti();
+		$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti_id_socio($id);
+		$data['abbonamenti_scaduti'] = $this->abbonamenti_model->get_abbonamenti_scaduti();
 		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
-		$data['ultima_iscrizione'] = $this->query_db->get_ultima_iscrizione($id);		
+		$data['ultima_iscrizione'] = $this->abbonamenti_model->get_ultima_iscrizione($id);		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/view', $data);
@@ -110,7 +110,7 @@ class Soci extends CI_Controller {
 	public function get_dump_soci()
 	{
 		$this->load->dbutil();
-		$this->load->helper('file');
+	//	$this->load->helper('file'); caricato in autoload
 		$report = $this->soci_model->dump_soci();
 		$new_report = $this->dbutil->csv_from_result($report);
 		$dump_filename = 'dump/Lista_Soci_'.unix_to_human(time()).'.csv';

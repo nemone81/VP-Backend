@@ -10,7 +10,7 @@ class CI_query_db	{
 			$this->db=$this->ci->db;
 			}
 
-		public function get_abbonamenti($id_socio = FALSE) // restituisce Lista Abbonamenti opzionalmente per id_socio
+		/*public function get_abbonamenti($id_socio = FALSE) // restituisce Lista Abbonamenti opzionalmente per id_socio
 		{
 			if ($id_socio === FALSE)
 			{
@@ -46,6 +46,8 @@ class CI_query_db	{
 			$query = $this->db->get('abbonamenti');
 			return $query->result_array();
 			}
+			
+			*/
 	
 		public function get_nome_abbonamenti($id = FALSE) // restituisce array codice abbonamento => nome abbonamento opzionalmente per id_abbonamento
 		{

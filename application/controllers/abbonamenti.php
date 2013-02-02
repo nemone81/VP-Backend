@@ -19,7 +19,7 @@ class Abbonamenti extends CI_Controller {
 	}
 
 
-	public function view($slug)
+ /*	public function view($slug)
 	{
 		$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($slug);
 		
@@ -34,7 +34,7 @@ class Abbonamenti extends CI_Controller {
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('abbonamenti/abb_view', $data);
 		$this->load->view('templates/footer');
-	}	
+	}	*/
 	
 	
 	public function create($id_socio)
@@ -76,10 +76,8 @@ class Abbonamenti extends CI_Controller {
 		
 		$data['title'] = 'Modifica dati';
 		$data['tipologia'] = $this->tipologia->getData();
-
 		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
 		$data['nome_soci'] = $this->query_db->get_nome_soci();
-
 
 		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
 		if ($this->form_validation->run() === FALSE)
@@ -99,7 +97,6 @@ class Abbonamenti extends CI_Controller {
 			$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
-//			var_dump($data['abbonamenti_item']);
 			$this->load->view('abbonamenti/abb_success_edit', $data);
 			$this->load->view('templates/footer');
 		}
