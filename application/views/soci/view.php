@@ -20,11 +20,17 @@
 
 			<hr>
 			<div style="float:left">
-				<div class="alert alert-block fade in"><class="alert-heading"><i class=" icon-list-alt"> </i>Scadenza Iscrizione: 
 				<?php $scadenza_iscrizione = $ultima_iscrizione[0]['scadenza'];
-					  echo date_format(date_create($scadenza_iscrizione), 'Y-m-d');
-					  ?>
+					if (human_to_unix($scadenza_iscrizione) < now() ) {
+						echo('<div class="alert alert-error alert-block fade in"><class="alert-heading">');
+					} else {
+						echo('<div class="alert alert-success alert-block fade in"><class="alert-heading">');
+					};
+				 ?>
+				<i class=" icon-list-alt"> </i>Scadenza Iscrizione: 
+				<?php echo $ultima_iscrizione[0]['scadenza']; ?>
 				</div>
+
 			</div>	
 
 			<div style="clear:both">	
