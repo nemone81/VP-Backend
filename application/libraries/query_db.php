@@ -49,6 +49,7 @@ class CI_query_db	{
 			
 			*/
 	
+/*
 		public function get_nome_abbonamenti($id = FALSE) // restituisce array codice abbonamento => nome abbonamento opzionalmente per id_abbonamento
 		{
 			if ($id === FALSE)
@@ -82,6 +83,7 @@ class CI_query_db	{
 				$query = $this->db->get_where('tipo_abbonamenti', array('id' => $id));
 				return $query->result_array();		
 			}
+*/
 		
 		
 }

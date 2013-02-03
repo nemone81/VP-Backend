@@ -8,6 +8,15 @@ class Abbonamenti_model extends CI_Model {
 	}
 
 
+	public function get_numero_abbonamenti($id) // 
+		{
+			$ora = unix_to_human(now());
+			$this->db->like('codice_abbonamento', $id ); // tipologia
+			$this->db->where('scadenza >', $ora); 
+			$query = $this->db->count_all_results('abbonamenti');
+			return $query;
+			}
+
 	public function get_abbonamenti($id = FALSE) // restituisce abbonamenti non cancellati
 	{
 		if ($id === FALSE)

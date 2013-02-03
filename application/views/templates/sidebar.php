@@ -21,7 +21,7 @@
 					<!-- BEGIN TOP NAVIGATION MENU -->					
 					<ul class="nav pull-right" id="top_menu">
 						<li class="divider-vertical hidden-phone hidden-tablet"></li>
-						<li><a href="login.html">Log Out</a></li>
+						<li><a href="<?php echo base_url('index.php/admin/logout') ?>">Log Out</a></li>
 					</ul>
 					<!-- END TOP NAVIGATION MENU -->	
 				</div>

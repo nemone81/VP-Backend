@@ -4,8 +4,15 @@ class Abbonamenti extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+	    session_start();
+	    parent::__construct();
+	    if ( !isset($_SESSION['username']) ) {
+   	    redirect('admin');
+   	    }
+	
 		$this->load->model('abbonamenti_model');
 		$this->load->model('soci_model');
+	
 	}
 
 	public function index()
@@ -57,11 +64,11 @@ class Abbonamenti extends CI_Controller {
 		}
 		else
 		{
-			$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
-			$data['nome_soci'] = $this->query_db->get_nome_soci();
+			$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
+			$data['nome_soci'] = $this->tipologia->get_nome_soci();
 			$this->abbonamenti_model->set_abbonamenti();
 			$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti();
-		//	$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti();
+			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti();
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success', $data);

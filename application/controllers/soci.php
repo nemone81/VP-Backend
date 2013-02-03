@@ -4,6 +4,14 @@ class Soci extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		
+		parent::__construct();
+	    session_start();
+	    parent::__construct();
+	    if ( !isset($_SESSION['username']) ) {
+   	    redirect('admin');
+   	    }
+   	    		
 		$this->load->model('soci_model');
 		$this->load->model('abbonamenti_model');
 	}
@@ -33,7 +41,7 @@ class Soci extends CI_Controller {
 		$data['tipologia'] = $this->tipologia->getData();
 		$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti_id_socio($id);
 		$data['abbonamenti_scaduti'] = $this->abbonamenti_model->get_abbonamenti_scaduti();
-		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
+		$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
 		$data['ultima_iscrizione'] = $this->abbonamenti_model->get_ultima_iscrizione($id);		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

@@ -39,6 +39,11 @@
 
 */
 //$route['dump/(:any)'] = 'dump/';
+$route['admin/logout'] = 'admin/logout';
+
+$route['welcome'] = 'welcome';
+$route['admin'] = 'admin';
+
 $route['dashboard'] = 'dashboard';
 $route['abbonamenti/edit/(:any)'] = 'abbonamenti/edit/$1';
 $route['abbonamenti/delete_abbonamenti/(:any)'] = 'abbonamenti/delete_abbonamenti/$1';

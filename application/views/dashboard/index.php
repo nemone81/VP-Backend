@@ -14,8 +14,6 @@
 					</span>							
 				</div>
 				<div class="widget-body">
-					<?php // print_r($nome_soci); ?>
-					<?php // echo 'abbonamenti scaduti:'; print_r($abbonamenti_scaduti) ?>
 					<div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<table class="table table-striped table-bordered" id="sample_1">
 							<thead>
@@ -78,39 +76,34 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>First Name</th>
-								<th>Last Name</th>
+								<th>Attivi</th>
+								<th>Totali</th>
 								<th class="hidden-phone">Username</th>
 								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>Totali Tesserati</td>
-								<td>Totali Tesserati Attivi</td>
+								<td>Iscritti</td>
+								<td><?php echo $numero_iscritti_attivi?></td>
 								<td class="hidden-phone">makr124</td>
 								<td><span class="label label-success">Approved</span></td>
 							</tr>
 							<tr>
-								<td>2</td>
-								<td>Jacob</td>
-								<td>Nilson</td>
+								<td>Annuali</td>
+								<td><?php echo $numero_annuali_attivi?></td>
 								<td class="hidden-phone">jac123</td>
 								<td><span class="label label-info">Pending</span></td>
 							</tr>
 							<tr>
-								<td>3</td>
-								<td>Larry</td>
-								<td>Cooper</td>
+								<td>Trimestrali</td>
+								<td><?php echo $numero_trimestrali_attivi?></td>
 								<td class="hidden-phone">lar</td>
 								<td><span class="label label-warning">Suspended</span></td>
 							</tr>
 							<tr>
-								<td>3</td>
-								<td>Sandy</td>
-								<td>Lim</td>
+								<td>Mensili</td>
+								<td><?php echo $numero_mensili_attivi?></td>
 								<td class="hidden-phone">sanlim</td>
 								<td><span class="label label-danger">Blocked</span></td>
 							</tr>
