@@ -15,7 +15,7 @@
         <div class="controls">
           <div class="input-prepend">
 				<?php echo form_label('', 'email_address')?>
-				<span class="add-on"><i class="icon-mail"></i></span><?php echo form_input('email_address', '','placeholder="Email"','id="email_address"')?>          
+				<span class="add-on"><i class="icon-envelope"></i></span><?php echo form_input('email_address', '','placeholder="Email"','id="email_address"')?>          
 				<?php echo form_error('email_address'); ?>	
          </div>
         </div>
