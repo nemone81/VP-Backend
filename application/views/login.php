@@ -15,8 +15,11 @@
         <div class="controls">
           <div class="input-prepend">
 				<?php echo form_label('', 'email_address')?>
-				<span class="add-on"><i class="icon-envelope"></i></span><?php echo form_input('email_address', '','placeholder="Email"','id="email_address"')?>          
-				<?php echo form_error('email_address'); ?>	
+				<span class="add-on"><i class="icon-envelope"></i></span>
+				<?php 
+				$property_email = array('class' => '', 'id' => 'email_address', 'name' => 'email_address', 'placeholder' => 'Email');
+				echo form_input($property_email);
+				echo form_error('email_address'); ?>	
          </div>
         </div>
       </div>
@@ -24,15 +27,17 @@
         <div class="controls">
           <div class="input-prepend">
 				<?php echo form_label('', 'password')?>
-				<span class="add-on"><i class="icon-lock"></i></span><?php echo form_password('password', '','placeholder="Password"','id="input-password"')?>    
-				<?php echo form_error('password'); ?>			
+				<span class="add-on"><i class="icon-lock"></i></span>
+				<?php $property_pwd = array('class' => '', 'id' => 'input-password', 'name' => 'password', 'placeholder' => 'Password');
+				echo form_password($property_pwd);								
+				//echo form_password('password', '','placeholder="Password"','id="input-password"');
+				echo form_error('password'); ?>			
           </div>
           <div class="clearfix space5"></div>
         </div>
       </div>
-       <?php  $attributes = array('id' => 'login-btn', 'class' => 'btn btn-block btn-inverse', );
-	       	echo form_submit('submit', 'Login', $attributes); ?>
-
+       <?php  	$property_submit = array('id'=>'login-btn', 'class'=>'btn btn-block btn-inverse', 'value'=>'Login');
+	       		echo form_submit($property_submit); ?>
     <!-- END LOGIN FORM -->        
 
     <?php echo form_close();?>
