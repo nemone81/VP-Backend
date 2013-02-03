@@ -7,8 +7,6 @@
 				<div class="widget-title">
 					<h4><i class="icon-list"> </i>Soci</h4>
 					<span class="tools">
-					<a href="javascript:;" class="icon-chevron-down"></a>
-					<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
 					<a href="http://localhost/VP-Backend/index.php/soci/get_dump_soci" target="_blank" data-toggle="modal" class="icon-download-alt popovers" data-trigger="hover" data-placement="left" data-content="Genera un export in formato csv della lista soci da poter importare in excel." data-original-title="Scarica Lista Soci"></a>									
 					</span>							
 				</div>
@@ -18,7 +16,7 @@
 							<thead>
 								<tr>
 								<th style="width: 70px;">Azioni</th>
-								<th style="width: 45px;">Tess</th>
+								<th style="width: 45px;">T n°</th>
 								<th>Nome</th>
 								<th>Cognome</th>
 								<th class="hidden-phone">Tipologia</th>

@@ -11,11 +11,11 @@
 		}?>
 	il: </span><?php echo $soci_item['data_nascita'].' a '.$soci_item['luogo_nascita']?></p>
 	<p><span style="color:grey"><i class="fntsz14 icon-heart"> </i>Sesso: </span><?php echo $soci_item['sesso']?></p>
-	<p><span style="color:grey"><i class="fntsz14 icon-medkit"> </i>Scadenza Certificato: </span>
+	<p><span style="color:grey"><i class="fntsz14 icon-medkit"> </i>
 		<?php if ($soci_item['certificato_medico'] == 0000-00-00) {
-			echo '<strong>Assente</strong>'; 
+			echo 'Certificato Medico: </span><strong>Assente</strong>'; 
 			} else {
-			echo $soci_item['certificato_medico'];
+			echo $soci_item['Scadenza Certificato: </span>certificato_medico'];
 			};?>
 	</p>
 </div>
