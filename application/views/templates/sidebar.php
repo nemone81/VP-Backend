@@ -6,7 +6,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="<?php echo base_url('index.php/soci/') ?>">
+				<a class="brand" href="<?php echo base_url('index.php/dashboard/'.date("Y")); ?>">
 					<img src="<?php echo base_url('assets/img/logo.png') ?>"  alt="Conquer"/>
 				</a>
 				<!-- END LOGO -->
@@ -40,7 +40,7 @@
 
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul>
-				<li><a href="<?php echo base_url('index.php/dashboard'); ?>"><i class="icon-home"></i> Dashboard</a></li>
+					<li><a href="<?php echo base_url('index.php/dashboard/'.date("Y")); ?>"><i class="icon-home"></i> Dashboard</a></li>
 				<li class=""><a class="" href="<?php echo base_url('index.php/soci'); ?>"><i class="icon-list"></i> Lista Soci</a></li>
 				<li><a class="" href="<?php echo base_url('index.php/soci/create'); ?>"><i class="icon-plus"></i> Nuovo Socio</a></li>
 <!-- 				<li><a class="" href="<?php echo base_url('index.php/abbonamenti/create'); ?>"><i class="icon-plus"></i> Nuovo Abboamento</a></li> -->

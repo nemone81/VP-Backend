@@ -54,7 +54,7 @@
 						<th style="width: 170px;">Abbonamento</th>
 						<th class="hidden-phone" style="width: 80px;">Codice</th>
 						<th style="width: 120px;">Scadenza</th>
-						<th>Note</th>
+						<th class="hidden-phone">Note</th>
 						<th class="hidden-phone" style="width: 120px;">Acquisto</th>
 					</tr>
 				</thead>
@@ -68,7 +68,7 @@
 				<tr class="odd gradeX">
 					<td class="center">
 						<a href="<?php echo base_url('index.php/abbonamenti/edit/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
-						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
+						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
 					</td>
 					<td><?php echo $nome_pezzi[0]; // piece1?></td>
 					<td><?php echo $nome_pezzi[1]; // piece1?></td>
@@ -84,7 +84,7 @@
 						echo date_format(date_create($abbonamenti_item['scadenza']), 'Y-m-d');
 						} ?>
 					</td>
-					<td><?php echo $abbonamenti_item['note'] ?></td>
+					<td class="hidden-phone"><?php echo $abbonamenti_item['note'] ?></td>
 					<td class="hidden-phone" ><?php echo $abbonamenti_item['data_creazione'] ?></td>
 				</tr>
 				<?php endforeach; ?>

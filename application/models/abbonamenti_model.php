@@ -113,6 +113,43 @@ class Abbonamenti_model extends CI_Model {
 			$this->db->update('abbonamenti', $data);
 		//	$this->db->delete('abbonamenti');	
 		}	
+		
+	public function get_storico_abbonamenti($id,$year) 
+	{
+		$this->db->like('codice_abbonamento', $id ); // tipologia
+		$this->db->where('delete', 0);
+		$this->db->like('data_acquisto', $year);
+		$this->db->select('YEAR(data_acquisto) AS year_val');
+		$this->db->select('MONTH(data_acquisto) AS month_val');
+		$this->db->select('COUNT( * ) AS total');
+		$this->db->group_by('YEAR(data_acquisto), MONTH(data_acquisto)');
+		$query = $this->db->get('abbonamenti');
+		return $query->result_array();
+		
+		/*
+		SELECT YEAR( data_acquisto ) AS year_val, MONTH( data_acquisto ) AS month_val, COUNT( * ) AS total
+		FROM abbonamenti
+		WHERE codice_abbonamento LIKE  '%M%' 
+		GROUP BY YEAR( data_acquisto ) , MONTH( data_acquisto ) 
+		LIMIT 0 , 30
+		*/
+	}		
+			
+		
+		
+	public function update_abbonamenti_storico($id,$year)// storico sul db
+	{		
+		$this->load->helper('url');
+		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
+		$up_data = array(
+			'tipologia' => $this->input->post('tipo').$this->input->post('abbonamento').$this->input->post('tipologia').'-2013',
+			'mese' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza_mese').' 23:59:59',
+			'totali' => $this->input->post('note'),
+			'data_modifica' => $nowhuman,
+			);
+		//$this->db->where('id', $id);	
+		$this->db->update('storico_abbonamenti', $up_data);
+	}
 
 }
 

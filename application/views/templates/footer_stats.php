@@ -1,12 +1,5 @@
 	<!-- BEGIN FOOTER -->
-	<!--
-	   <div id="footer">
-		VerticalPark Backend
-	      <div class="span pull-right">
-	         <span class="go-top"><i class="icon-arrow-up"></i></span>
-	      </div>
-	   </div>
-	-->
+
 	<!-- END FOOTER -->
 	<!-- BEGIN JAVASCRIPTS -->		
 	<!-- Load javascripts at bottom, this will reduce page load time -->
@@ -42,7 +35,7 @@
 	<script>
 	  jQuery(document).ready(function() {			
 	  	// initiate layout and plugins
-	  	App.setMainPage(true);
+//	  	App.setMainPage(true);
 	  	App.init();
 	  });
 	</script>

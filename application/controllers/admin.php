@@ -31,7 +31,7 @@ class Admin extends CI_Controller {
 
          if ( $res !== false ) {
             $_SESSION['username'] = $this->input->post('email_address');
-            redirect('dashboard');
+            redirect('dashboard/'.date("Y"));
          }
 
       }

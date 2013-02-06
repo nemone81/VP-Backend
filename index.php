@@ -19,6 +19,10 @@
  *
  */
 	define('ENVIRONMENT', 'development');
+	
+	
+ // NOTE: include le libererie installate con composer
+	include('vendor/autoload.php');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

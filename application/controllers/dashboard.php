@@ -16,8 +16,9 @@ class Dashboard extends CI_Controller {
 
 	}
 
-	public function index()
+	public function index($anno)//$anno = null)
 	{	
+	//	$anno = '2014';
 		$data['soci'] = $this->soci_model->get_soci();
 		$data['title'] = 'Lista Soci';
 		$data['tipologia'] = $this->tipologia->getData();
@@ -28,7 +29,12 @@ class Dashboard extends CI_Controller {
 		$data['numero_mensili_attivi'] = $this->abbonamenti_model->get_numero_abbonamenti('M');
 		$data['numero_annuali_attivi'] = $this->abbonamenti_model->get_numero_abbonamenti('A');
 		$data['numero_trimestrali_attivi'] = $this->abbonamenti_model->get_numero_abbonamenti('T');
-
+	
+		$data['storico_iscritti'] = $this->abbonamenti_model->get_storico_abbonamenti('I',$anno);
+		$data['storico_mensili'] = $this->abbonamenti_model->get_storico_abbonamenti('M',$anno);
+		$data['storico_annuali'] = $this->abbonamenti_model->get_storico_abbonamenti('A',$anno);
+		$data['storico_coupon'] = $this->abbonamenti_model->get_storico_abbonamenti('K',$anno);
+		$data['storico_trimestrali'] = $this->abbonamenti_model->get_storico_abbonamenti('T',$anno);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

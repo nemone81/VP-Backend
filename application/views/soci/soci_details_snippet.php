@@ -15,7 +15,7 @@
 		<?php if ($soci_item['certificato_medico'] == 0000-00-00) {
 			echo 'Certificato Medico: </span><strong>Assente</strong>'; 
 			} else {
-			echo $soci_item['Scadenza Certificato: </span>certificato_medico'];
+			echo 'Scadenza Certificato: </span>'.$soci_item['certificato_medico'];
 			};?>
 	</p>
 </div>

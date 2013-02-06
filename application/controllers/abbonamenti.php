@@ -109,14 +109,16 @@ class Abbonamenti extends CI_Controller {
 		}
 	}
 	
-	public function delete_abbonamenti($id)
+	public function delete_abbonamenti($id, $id_socio)
 	{
 		$data['title'] = 'Elimina soci';
 		$this->abbonamenti_model->delete_abbonamenti($id);
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);	
-		$this->load->view('templates/success', $data);	
-		$this->load->view('templates/footer');	  
+		redirect('soci/'.$id_socio, 'refresh');
+		
+	//	$this->load->view('templates/header', $data);
+	//	$this->load->view('templates/sidebar', $data);	
+	//	$this->load->view('templates/success', $data);	
+	//	$this->load->view('templates/footer');	  
 	}	
 
 	

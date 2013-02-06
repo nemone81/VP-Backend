@@ -115,17 +115,27 @@ class Soci extends CI_Controller {
 	}
 	
 
-	public function get_dump_soci()
+	public function get_csv_soci()
 	{
 		$this->load->dbutil();
-	//	$this->load->helper('file'); caricato in autoload
 		$report = $this->soci_model->dump_soci();
 		$new_report = $this->dbutil->csv_from_result($report);
-		$dump_filename = 'dump/Lista_Soci_'.unix_to_human(time()).'.csv';
-		write_file($dump_filename, $new_report);
-		redirect(base_url($dump_filename), 'refresh');
+		$csv_filename = 'export_csv/Lista_Soci_'.unix_to_human(time()).'.csv';
+		write_file($csv_filename, $new_report);
+		redirect(base_url($csv_filename), 'refresh');
 	}	
 	
+	public function backup_db()
+	{
+		$this->load->dbutil();
+		$backup_filename = 'backup_my_Sql/Database_'.unix_to_human(time()).'.zip';
+		$prefs = array(
+                'format'      => 'zip',
+                'filename'    => 'Database_'.unix_to_human(time()).'.zip',
+        );
+        $backup = $this->dbutil->backup($prefs);
+		write_file($backup_filename, $backup); 
+	}	
 	
 	public function delete_soci($id)
 	{
