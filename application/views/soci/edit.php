@@ -14,7 +14,6 @@
 							<?php $attributes = array('class' => 'form-horizontal');
 								echo form_open('soci/edit/'.$soci_item['id'], $attributes); ?>
 							
-													
                               <div class="control-group">
                                  <label class="control-label" for="nome">Nome</label>
                                  <div class="controls">
@@ -24,7 +23,7 @@
 			            	         <?php echo form_error('nome','<span class="help-inline">','</span>'); ?>
 			            	     </div>
                               </div>
-
+                              
                               <div class="control-group">
                                  <label class="control-label" for="cognome">Cognome</label>
                                  <div class="controls">

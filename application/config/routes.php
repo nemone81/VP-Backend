@@ -44,6 +44,7 @@ $route['admin/logout'] = 'admin/logout';
 $route['welcome'] = 'welcome';
 $route['admin'] = 'admin';
 
+$route['backup/backup_db'] = 'backup/backup_db';
 
 $route['dashboard/(:any)'] = 'dashboard/index/$1';
 $route['dashboard'] = 'dashboard';
@@ -64,8 +65,7 @@ $route['soci/(:any)'] = 'soci/view/$1';
 $route['soci'] = 'soci';
 
 $route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
-$route['default_controller'] = "login";
+$route['default_controller'] = "soci";
 
 
 /* End of file routes.php */
