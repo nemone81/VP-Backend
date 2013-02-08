@@ -20,13 +20,19 @@
                                  <div class="controls">
                                     <input type="text" class="span3" id="input1" name="nome" value="<?php echo $soci_item['nome']?>" />
                                  </div>
+			                     <div class="control-group error">
+			            	         <?php echo form_error('nome','<span class="help-inline">','</span>'); ?>
+			            	     </div>
                               </div>
-                                                            
+
                               <div class="control-group">
                                  <label class="control-label" for="cognome">Cognome</label>
                                  <div class="controls">
                                     <input type="text" class="span4" id="input1" name="cognome" value="<?php echo $soci_item['cognome']?>" />
                                  </div>
+			                     <div class="control-group error">
+				                     <?php echo form_error('cognome','<span class="help-inline">','</span>'); ?>
+			            	     </div>                                 
                               </div>
                               
                               <div class="control-group">

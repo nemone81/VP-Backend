@@ -67,8 +67,25 @@
 					?>
 				<tr class="odd gradeX">
 					<td class="center">
-						<a href="<?php echo base_url('index.php/abbonamenti/edit/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;
-						<a href="<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Elimina Abbonamento"><i class="icon-remove"></i></a>&nbsp;		
+						<a href="<?php echo base_url('index.php/abbonamenti/edit/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica Abbonamento"><i class="icon-pencil"></i></a>&nbsp;	
+						<a href="#Delete_Modal<?php echo($abbonamenti_item['id_socio']) ?>"  class="icon huge tooltips" data-placement="top" data-original-title="Elimina  Abbonamento" data-toggle="modal"><i class="icon-remove"></i></a>&nbsp;		
+									
+						<div id="Delete_Modal<?php echo($abbonamenti_item['id_socio']) ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" style="display: none;">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								<h3 id="myModalLabel3">Elimina Abbonamento</h3>
+							</div>
+							<div class="modal-body">
+								<p>Una volta eliminato, le informazioni non saranno recuperabili.</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn" data-dismiss="modal" aria-hidden="true">Annulla</button>
+								<button onclick="location.href='<?php echo base_url('index.php/abbonamenti/delete_abbonamenti/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio']) ?>'" data-dismiss="modal" class="btn btn-primary">Conferma</button>
+								
+							</div>
+						</div>
+			
+						
 					</td>
 					<td><?php echo $nome_pezzi[0]; // piece1?></td>
 					<td><?php echo $nome_pezzi[1]; // piece1?></td>

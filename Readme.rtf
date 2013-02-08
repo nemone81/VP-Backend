@@ -11,13 +11,14 @@
 \b \
 WORK IN PROGRESS
 \b0 \
+- import utenti\
+- crontab backup\
 
-\b \
+\b - \
+\
 TO DO
 \b0 \
-- redirect -> success\
 - evitare insert a reload pagina\
-- inserire altre tiplogie abbonamenti\
 - date format\
 
 \b \
@@ -42,7 +43,7 @@ TO WILL DO
 \b View Dashboard - Home\
 - 
 \b0 abbonamenti in scadenza\
-- iscrizioni in scadenza\
+- iscrizioni in scadenzaw\
 - abbonamenti e iscrizioni corrente mese\
 \
 
@@ -52,18 +53,4 @@ TO WILL DO
 - economics\
 \
 -----------------\
-\
-\
-query db abbonamenti \
-\
-\
-\
-SELECT YEAR( data_acquisto ) AS year_val, MONTH( data_acquisto ) AS month_val, COUNT( * ) AS total\
-FROM abbonamenti\
-GROUP BY YEAR( data_acquisto ) , MONTH( data_acquisto ) ,TIPOLOGIA(codice_abbonamento)\
-LIMIT 0 , 30\
-\
-SELECT YEAR( data_acquisto ) AS year_val, MONTH( data_acquisto ) AS month_val, TIPOLOGIA (codice_abbonamento ) AS tipo_val COUNT( * ) AS total\
-FROM abbonamenti \
-GROUP BY YEAR( data_acquisto ) , MONTH( data_acquisto ) , TIPOLOGIA (codice_abbonamento )\
-LIMIT 0 , 30}
+}

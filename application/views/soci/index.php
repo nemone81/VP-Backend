@@ -42,9 +42,9 @@
 							foreach ($soci as $soci_item): ?>
 							<tr class="odd gradeX">
 								<td class="center">
-									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza scheda Socio"><i class="icon-zoom-in"></i></a>&nbsp;
-									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica scheda Socio"><i class="icon-pencil"></i></a>&nbsp;
-									<a href="#Delte_Modal<?php echo($soci_item['id']) ?>"  class="icon huge tooltips" data-placement="top" data-original-title="Elimina scheda Socio" data-toggle="modal"><i class="icon-remove"></i></a>&nbsp;		
+									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza dettagli Socio"><i class="icon-zoom-in"></i></a>&nbsp;
+									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica dettagli Socio"><i class="icon-pencil"></i></a>&nbsp;
+									<a href="#Delte_Modal<?php echo($soci_item['id']) ?>"  class="icon huge tooltips" data-placement="top" data-original-title="Elimina  Socio" data-toggle="modal"><i class="icon-remove"></i></a>&nbsp;		
 									
 									<div id="Delte_Modal<?php echo($soci_item['id']) ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" style="display: none;">
 										<div class="modal-header">
@@ -52,11 +52,11 @@
 											<h3 id="myModalLabel3">Elimina Socio</h3>
 										</div>
 										<div class="modal-body">
-											<p>Una volta eliminato, le informazioni non saranno recuperabili.</p>
+											<p>Una volta eliminate, le informazioni non saranno recuperabili.</p>
 										</div>
 										<div class="modal-footer">
 											<button class="btn" data-dismiss="modal" aria-hidden="true">Annulla</button>
-											<a href="<?php echo base_url('index.php/soci/delete_soci').'/'.$soci_item['id'] ?>" role="button" data-dismiss="modal" class="btn btn-primary">Conferma</a>
+											<button onclick="location.href='<?php echo base_url('index.php/soci/delete_soci').'/'.$soci_item['id'] ?>'" data-dismiss="modal" class="btn btn-primary">Conferma Eliminazione</button>
 										</div>
 									</div>
 								</td>

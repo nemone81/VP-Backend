@@ -64,10 +64,11 @@ class Soci extends CI_Controller {
 		
 		if ($this->form_validation->run() === FALSE)
 		{
+			$data['soci_item'] = '';
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$maxnumtessera = $this->soci_model->get_maxtessera();
-			$this->load->view('soci/create',  array('Ntessera' => $maxnumtessera['tessera']));
+			$this->load->view('soci/create_edit',  array('Ntessera' => $maxnumtessera['tessera']));
 			$this->load->view('templates/footer_form');
 		}
 		else
@@ -98,7 +99,7 @@ class Soci extends CI_Controller {
 			$this->load->view('templates/header', $data);
 			$this->load->view('soci/edit_script', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('soci/edit');
+			$this->load->view('soci/create_edit');
 			$this->load->view('templates/footer_form');
 		}
 		else
@@ -114,7 +115,6 @@ class Soci extends CI_Controller {
 		}
 	}
 	
-
 	public function get_csv_soci()
 	{
 		$this->load->dbutil();
@@ -141,10 +141,12 @@ class Soci extends CI_Controller {
 	{
 		$data['title'] = 'Elimina dati';
 		$this->soci_model->delete_soci($id);
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);	
-		$this->load->view('templates/success', $data);	
-		$this->load->view('templates/footer');	  
+		redirect('soci/', 'refresh');
 	}
+	
+	
+	
+	
+	
 	
 }

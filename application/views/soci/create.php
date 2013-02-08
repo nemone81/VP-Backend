@@ -9,7 +9,6 @@
             </div>
             <div class="widget-body form">
              <!-- BEGIN FORM-->
-             <?php echo validation_errors(); ?>
               <?php $attributes = array('class' => 'form-horizontal');
 	              echo form_open('soci/create', $attributes); ?>
 			
@@ -18,6 +17,9 @@
                      <div class="controls">
                         <input type="text" class="span3" id="input1" name="nome" placeholder="Obbligatorio"/>
                      </div>
+                     <div class="control-group error">
+            	         <?php echo form_error('nome','<span class="help-inline">','</span>'); ?>
+            	     </div>
                   </div>
                                                 
                   <div class="control-group">
@@ -25,6 +27,9 @@
                      <div class="controls">
                         <input type="text" class="span4" id="input1" name="cognome" placeholder="Obbligatorio"/>
                      </div>
+                     <div class="control-group error">
+                     <?php echo form_error('cognome','<span class="help-inline">','</span>'); ?>
+            	     </div>
                   </div>
                   
                   <div class="control-group">

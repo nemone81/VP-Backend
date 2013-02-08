@@ -8,6 +8,7 @@ class Soci_model extends CI_Model {
 	}
 
 	public function dump_soci(){
+		$this->db->where('delete', 0);
 	   return $query = $this->db->get('soci');//restituisce l'intera tabella soci
 	}    
 
@@ -16,9 +17,11 @@ class Soci_model extends CI_Model {
 	{
 		if ($slug === FALSE)
 		{
+			$this->db->where('delete', 0);
 			$query = $this->db->get('soci');
 			return $query->result_array();
 		}
+		$this->db->where('delete', 0);
 		$query = $this->db->get_where('soci', array('slug' => $slug));
 		return $query->row_array();
 	}
@@ -26,6 +29,7 @@ class Soci_model extends CI_Model {
 	
     public function get_soci_by_id($id)
 	{
+		$this->db->where('delete', 0);
 		$query = $this->db->get_where('soci', array('id' => $id));
 		return $query->row_array();
 	}
@@ -103,15 +107,14 @@ class Soci_model extends CI_Model {
 		{
 			echo 'seleziona utente da cancellare';
 		}
+			$data = array(
+			'delete' => 1 ,
+			);
 			$this->db->where('id', $id);
-			$this->db->delete('soci');	
+			$this->db->update('soci', $data);
+//			$this->db->where('id', $id);
+//			$this->db->delete('soci');	
 		}
-	
+		
+
 }
-
-
-
-
-
-
-
