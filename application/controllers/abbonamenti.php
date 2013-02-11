@@ -63,15 +63,18 @@ class Abbonamenti extends CI_Controller {
 		}
 		else
 		{
-			$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
-			$data['nome_soci'] = $this->tipologia->get_nome_soci();
+			//$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
+			//$data['nome_soci'] = $this->tipologia->get_nome_soci();
 			$this->abbonamenti_model->set_abbonamenti();
-			$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti();
-			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti();
+			$this->session->set_flashdata('abbonamento', 'new_abbonamento');
+			redirect('soci/'.$id_socio, 'refresh');
+			/*
+			
+			$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti_id_socio($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer');*/
 		}
 	}
 	
@@ -82,8 +85,8 @@ class Abbonamenti extends CI_Controller {
 		
 		$data['title'] = 'Modifica dati';
 		$data['tipologia'] = $this->tipologia->getData();
-		$data['nome_abbonamenti'] = $this->query_db->get_nome_abbonamenti();
-		$data['nome_soci'] = $this->query_db->get_nome_soci();
+		$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
+		$data['nome_soci'] = $this->tipologia->get_nome_soci();
 
 		$this->form_validation->set_rules('abbonamento', 'abbonamento', 'required');		
 		if ($this->form_validation->run() === FALSE)
@@ -92,19 +95,30 @@ class Abbonamenti extends CI_Controller {
 			$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
-			$this->load->view('abbonamenti/abb_create_script', $data);
+			$this->load->view('abbonamenti/abb_edit_script', $data);
 			$this->load->view('abbonamenti/abb_edit');
 			$this->load->view('templates/footer');
 		}
 		else
 		{
 			$this->abbonamenti_model->update_abbonamenti($id);
+			$this->session->set_flashdata('abbonamento', 'edit_abbonamento');
+			redirect('soci/'.$id_socio, 'refresh');
+			
+			
+			/*
+			
 			$data['abbonamenti_item'] = $this->abbonamenti_model->get_abbonamenti($id);
 			$data['soci_item'] = $this->soci_model->get_soci_by_id($id_socio);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('abbonamenti/abb_success_edit', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer');*/
+			
+			
+			
+			
+			
 		}
 	}
 	
@@ -113,11 +127,6 @@ class Abbonamenti extends CI_Controller {
 		$data['title'] = 'Elimina soci';
 		$this->abbonamenti_model->delete_abbonamenti($id);
 		redirect('soci/'.$id_socio, 'refresh');
-		
-	//	$this->load->view('templates/header', $data);
-	//	$this->load->view('templates/sidebar', $data);	
-	//	$this->load->view('templates/success', $data);	
-	//	$this->load->view('templates/footer');	  
 	}	
 
 	

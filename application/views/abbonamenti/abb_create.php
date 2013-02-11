@@ -1,9 +1,4 @@
-
-
-
 <!-- BEGIN PAGE CONTENT-->
-
-
 <div id="page">
    <div class="row-fluid">
       <div class="span12">
@@ -19,14 +14,13 @@
              		$attributes = array('class' => 'form-horizontal');
              		echo form_open('abbonamenti/create/'.$soci_item['id'], $attributes); ?>						
 			
-				 <p style="font-size: 15px;margin-left: 132px;"> Socio &nbsp 
+				 <p style="font-size: 15px;margin-left: 124px;"> Socio &nbsp &nbsp 
 				 	<?php echo $soci_item['nome'].' '.$soci_item['cognome']?>
 				 </p>
 				
-				 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp
-				 	<?php echo $tipologia[$soci_item['tipo']]?>
+				 <p style="font-size: 15px;margin-left: 103px;"> Tipologia &nbsp  &nbsp
+					 	<?php echo $tipologia[$soci_item['tipo']]?>
 			
-
 				<div class="control-group">
 				 <label class="control-label" >Abbonamento</label>
 				 <div class="controls">

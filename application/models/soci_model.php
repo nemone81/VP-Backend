@@ -95,8 +95,6 @@ class Soci_model extends CI_Model {
 			'note' => $this->input->post('note'),
 			'data_modifica' => $nowhuman,
 			);
-		//$slug = $this->input->post('slug');
-		//$id = $this->input->post('slug');
 		$this->db->where('id', $id );	
 		$this->db->update('soci', $up_data);
 	}
@@ -112,8 +110,6 @@ class Soci_model extends CI_Model {
 			);
 			$this->db->where('id', $id);
 			$this->db->update('soci', $data);
-//			$this->db->where('id', $id);
-//			$this->db->delete('soci');	
 		}
 		
 

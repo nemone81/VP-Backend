@@ -11,18 +11,6 @@
 					</span>							
 				</div>
 				<div class="widget-body">
-				
-									
-								
-				
-				
-				
-				
-				
-				
-				
-				
-				
 					<div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<table class="table table-striped table-bordered" id="sample_1">
 							<thead>
@@ -44,9 +32,8 @@
 								<td class="center">
 									<a href="<?php echo base_url('index.php/soci').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Visualizza dettagli Socio"><i class="icon-zoom-in"></i></a>&nbsp;
 									<a href="<?php echo base_url('index.php/soci/edit').'/'.$soci_item['id'] ?>" class="icon huge tooltips" data-placement="top" data-original-title="Modifica dettagli Socio"><i class="icon-pencil"></i></a>&nbsp;
-									<a href="#Delte_Modal<?php echo($soci_item['id']) ?>"  class="icon huge tooltips" data-placement="top" data-original-title="Elimina  Socio" data-toggle="modal"><i class="icon-remove"></i></a>&nbsp;		
-									
-									<div id="Delte_Modal<?php echo($soci_item['id']) ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" style="display: none;">
+									<a href="#Delete_Modal<?php echo($soci_item['id']) ?>"  class="icon huge tooltips" data-placement="top" data-original-title="Elimina  Socio" data-toggle="modal"><i class="icon-remove"></i></a>&nbsp;		
+									<div id="Delete_Modal<?php echo($soci_item['id']) ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" style="display: none;">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 											<h3 id="myModalLabel3">Elimina Socio</h3>

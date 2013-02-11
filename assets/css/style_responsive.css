@@ -7,8 +7,9 @@
   	}
 
   	#sidebar ul{
-  		margin-top:35px;
+/*   		margin-top:35px; */
   		width: 215px;
+  		position: fixed;
   	}
 
   	/* body container */

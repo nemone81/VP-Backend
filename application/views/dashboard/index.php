@@ -1,7 +1,8 @@
 <!-- BEGIN PAGE CONTENT-->
-<div id="page" class="dashboard">
+<div id="page">
 	<!-- BEGIN ROW-->
 	
+
 	<?php echo'iscritti: '; print_r($storico_iscritti);	?>
 	<br>
 	<?php echo'mensili :'; print_r($storico_mensili);	?>
@@ -13,12 +14,13 @@
 	<?php echo'trimestrali: '; print_r($storico_trimestrali);	?>
 	<br>
 
+
 	<div class="row-fluid">
 		<div class="span12">
 			<!-- BEGIN WIDGET ISCRIZIONI SCADUTE-->
 			<div class="widget">
 				<div class="widget-title">
-					<h4><i class="icon-list"> </i>Iscrizioni, Abbonamenti Annuali, Trimestrali: Scaduti negli ultimi 60 giorni</h4>
+					<h4><i class="icon-list"> </i>Iscrizioni, Annuali, Trimestrali: Scaduti negli ultimi 60 giorni</h4>
 					<span class="tools">
 								
 					</span>							
@@ -66,58 +68,32 @@
 			<!-- END WIDGET ISCRIZIONI SCADUTE-->
 		</div>
 	</div>
-	<!-- END ROW-->
-
-
-
-
-
-
-					<div class="widget">
-						<div class="widget-title">
-							<h4><i class="icon-reorder"></i>Intefractive Chart</h4>
-							<span class="tools">								
-							<a href="#widget-config" data-toggle="modal" class="icon-wrench"></a>
-							<a href="javascript:;" class="icon-refresh"></a>		
-							<a href="javascript:;" class="icon-remove"></a>
-							</span>							
-						</div>
-						<div class="widget-body">
-							<div id="chart_2" class="chart"></div>
-						</div>
+	
+	<div class="row-fluid">
+		<div class="span12">
+			<!-- BEGIN INTERACTIVE CHART PORTLET-->
+			<div class="widget">
+				<div class="widget">
+					<div class="widget-title">
+						<h4><i class="icon-reorder"></i>Acquisti</h4>						
 					</div>
+					<div class="widget-body">
+						<div id="site_statistics" class="chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END INTERACTIVE CHART PORTLET-->		
+	</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row-fluid">
-
-					<!-- END INTERACTIVE CHART PORTLET-->						
-
+	<div class="row-fluid">
+		<div class="span3">
 
 			<div class="widget">
 				<div class="widget-title">
 					<h4><i class="icon-reorder"></i>Numeri</h4>
 					<span class="tools">
-
 					</span>							
 				</div>
 				<div class="widget-body">
@@ -126,34 +102,24 @@
 							<tr>
 								<th>Attivi</th>
 								<th>Totali</th>
-								<th class="hidden-phone">Username</th>
-								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>Iscritti</td>
 								<td><?php echo $numero_iscritti_attivi?></td>
-								<td class="hidden-phone"></td>
-								<td><span class="label label-success"></span></td>
 							</tr>
 							<tr>
 								<td>Annuali</td>
 								<td><?php echo $numero_annuali_attivi?></td>
-								<td class="hidden-phone"></td>
-								<td><span class="label label-info"></span></td>
 							</tr>
 							<tr>
 								<td>Trimestrali</td>
 								<td><?php echo $numero_trimestrali_attivi?></td>
-								<td class="hidden-phone"></td>
-								<td><span class="label label-warning"></span></td>
 							</tr>
 							<tr>
 								<td>Mensili</td>
 								<td><?php echo $numero_mensili_attivi?></td>
-								<td class="hidden-phone"></td>
-								<td><span class="label label-danger"></span></td>
 							</tr>
 						</tbody>
 					</table>

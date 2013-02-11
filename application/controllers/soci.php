@@ -40,7 +40,9 @@ class Soci extends CI_Controller {
 		$data['abbonamenti'] = $this->abbonamenti_model->get_abbonamenti_id_socio($id);
 		$data['abbonamenti_scaduti'] = $this->abbonamenti_model->get_abbonamenti_scaduti();
 		$data['nome_abbonamenti'] = $this->tipologia->get_nome_abbonamenti();
-		$data['ultima_iscrizione'] = $this->abbonamenti_model->get_ultima_iscrizione($id);		
+		$data['ultima_iscrizione'] = $this->abbonamenti_model->get_ultima_iscrizione($id);	
+		$data['flash_socio'] = $this->session->flashdata('socio');	
+		$data['flash_abbonamento'] = $this->session->flashdata('abbonamento');	
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('soci/view', $data);
@@ -73,10 +75,10 @@ class Soci extends CI_Controller {
 		{
 			$this->soci_model->set_soci();
 			$data['soci'] = $this->soci_model->get_soci();
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/sidebar', $data);	
-			$this->load->view('soci/success', $data);
-			$this->load->view('templates/footer');
+			$socio_item = end($data['soci']);
+			$id_socio_item = $socio_item['id'];
+			$this->session->set_flashdata('socio', 'new_socio');
+			redirect('soci/'.$id_socio_item, 'refresh');
 		}
 	}
 	
@@ -102,14 +104,23 @@ class Soci extends CI_Controller {
 		}
 		else
 		{
-			$data['title'] = 'Dati modificati';
+			//$data['title'] = 'Dati modificati';
 
 			$this->soci_model->update_soci($id);
+			
+			$data['soci'] = $this->soci_model->get_soci();
+			$socio_item = end($data['soci']);
+			$id_socio_item = $socio_item['id'];
+			$this->session->set_flashdata('socio', 'edit_socio');
+			redirect('soci/'.$id_socio_item, 'refresh');
+			
+			/*
+			
 			$data['soci_item'] = $this->soci_model->get_soci_by_id($id);
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);	
 			$this->load->view('soci/success_edit', $data, $id);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer');*/
 		}
 	}
 	

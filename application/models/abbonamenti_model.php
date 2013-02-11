@@ -8,7 +8,7 @@ class Abbonamenti_model extends CI_Model {
 	}
 
 
-	public function get_numero_abbonamenti($id) // 
+	public function get_numero_abbonamenti($id) // restituisce totale abbonamenti attivi per tipologia
 		{
 			$ora = unix_to_human(now());
 			$this->db->like('codice_abbonamento', $id ); // tipologia
@@ -17,7 +17,7 @@ class Abbonamenti_model extends CI_Model {
 			return $query;
 			}
 
-	public function get_abbonamenti($id = FALSE) // restituisce abbonamenti non cancellati
+	public function get_abbonamenti($id = FALSE) // restituisce abbonamenti non cancellati opzionalmente per id_abbonamento
 	{
 		if ($id === FALSE)
 		{
@@ -111,7 +111,6 @@ class Abbonamenti_model extends CI_Model {
 			);
 			$this->db->where('id', $id);
 			$this->db->update('abbonamenti', $data);
-		//	$this->db->delete('abbonamenti');	
 		}	
 		
 	public function get_storico_abbonamenti($id,$year) 
@@ -125,17 +124,8 @@ class Abbonamenti_model extends CI_Model {
 		$this->db->group_by('YEAR(data_acquisto), MONTH(data_acquisto)');
 		$query = $this->db->get('abbonamenti');
 		return $query->result_array();
-		
-		/*
-		SELECT YEAR( data_acquisto ) AS year_val, MONTH( data_acquisto ) AS month_val, COUNT( * ) AS total
-		FROM abbonamenti
-		WHERE codice_abbonamento LIKE  '%M%' 
-		GROUP BY YEAR( data_acquisto ) , MONTH( data_acquisto ) 
-		LIMIT 0 , 30
-		*/
 	}		
 			
-		
 		
 	public function update_abbonamenti_storico($id,$year)// storico sul db
 	{		

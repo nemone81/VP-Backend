@@ -26,7 +26,7 @@
    <script type="text/javascript" src="<?php echo base_url('assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js') ?>"></script>
    <script type="text/javascript" src="<?php echo base_url('assets/bootstrap-datepicker/js/bootstrap-datepicker_IT.js') ?>"></script>
    <script src="<?php echo base_url('assets/fancybox/source/jquery.fancybox.pack.js') ?>"></script>
-   <script src="<?php echo base_url('assets/js/app.js') ?>"></script>		
+   <script src="<?php echo base_url('assets/js/app.js') ?>"></script>   
    <script>
       jQuery(document).ready(function() {			
       	// initiate layout and plugins

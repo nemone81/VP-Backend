@@ -15,14 +15,14 @@
              		$attributes = array('class' => 'form-horizontal');
              		echo form_open('abbonamenti/edit/'.$abbonamenti_item['id'].'/'.$abbonamenti_item['id_socio'], $attributes); ?>						
 		
-			 <p style="font-size: 15px;margin-left: 132px;"> Socio &nbsp 
+			<p style="font-size: 15px;margin-left: 124px;"> Socio &nbsp &nbsp 
 			 	<?php echo $soci_item['nome'].' '.$soci_item['cognome']?>
 			 </p>
 			
-			 <p style="font-size: 15px;margin-left: 112px;"> Tipologia &nbsp
+			 <p style="font-size: 15px;margin-left: 103px;"> Tipologia &nbsp  &nbsp
 			 	<?php echo $tipologia[$soci_item['tipo']]?>
-			
-		
+			 </p>
+			 
 			<div class="control-group">
 			 <label class="control-label" >Abbonamento</label>
 			 <div class="controls">
@@ -40,7 +40,7 @@
 			 <label class="control-label" >Modalità</strong>
 			</label>
 			 <div class="controls">
-			    <select class="span2" data-placeholder="Scegli Tipologia" tabindex="1" name="tipologia">
+			    <select class="span2" id="tipologia" data-placeholder="Scegli Tipologia" tabindex="1" name="tipologia">
 						<option value="N">Senza Corso</option>
 						<option value="C">Con Corso</option>
 				</select>
@@ -50,7 +50,7 @@
 			<div class="control-group">
 			 <label class="control-label" >Scadenza</label>
 			 <div class="controls">
-			    <select class="span2" data-placeholder="Scegli Tipologia" tabindex="1" name="data_scadenza_mese">
+			    <select class="span2" id="data_scadenza_mese" data-placeholder="Scegli Tipologia" tabindex="1" name="data_scadenza_mese">
 					<option value="01-31">Gennaio</option>
 					<option value="02-29">Febbraio</option>
 					<option value="03-31">Marzo</option>
@@ -64,13 +64,13 @@
 					<option value="11-30">Novembre</option>
 					<option value="12-31">Dicembre</option>
 				</select>
-				<input style="width: 40px;text-align: center;" size="16" type="text" value="<?php echo date('Y', time());?>" name="data_scadenza_anno" data-date-format="yyyy-mm-dd"/>
+				<input style="width: 40px;text-align: center;" size="16" type="text" value="<?php echo substr($abbonamenti_item['scadenza'], 0, 4)?>" name="data_scadenza_anno" data-date-format="yyyy-mm-dd"/>
 			 </div>
 		      <div style="clear:float;clear: both;margin-bottom: 17px;"></div>
 			<div class="control-group">
 			 <label class="control-label" >Data di acquisto</label>
 			 <div class="controls">
-			    <input class="input-small date-picker" size="16" type="text" value="<?php echo $abbonamenti_item['data_acquisto']?>" name="data_acquisto" data-date-format="yyyy-mm-dd"/>
+			    <input class="input-small date-picker" maxlength="4" size="16" type="text" value="<?php echo $abbonamenti_item['data_acquisto']?>" name="data_acquisto" data-date-format="yyyy-mm-dd"/>
 			 </div>
 			</div>			
 			

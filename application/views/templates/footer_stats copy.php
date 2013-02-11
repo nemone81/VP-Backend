@@ -19,20 +19,21 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js') ?>"></script>
 	<script src="<?php echo base_url('assets/flot/jquery.flot.js') ?>"></script>
 	<script src="<?php echo base_url('assets/flot/jquery.flot.resize.js') ?>"></script>
+	<script src="<?php echo base_url('assets/flot/jquery.flot.pie.js') ?>"></script>
+	<script src="<?php echo base_url('assets/flot/jquery.flot.stack.js') ?>"></script>
+	<script src="<?php echo base_url('assets/flot/jquery.flot.crosshair.js') ?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.peity.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/gritter/js/jquery.gritter.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/uniform/jquery.uniform.min.js') ?>"></script>
 	<script src="<?php echo base_url('assets/fancybox/source/jquery.fancybox.pack.js') ?>"></script>
 	<script src="<?php echo base_url('assets/js/app.js') ?>"></script>	
 	
-<script>
-$(document).ready(function () {
+	<script>
+	  jQuery(document).ready(function() {			
 	  	// initiate layout and plugins
 	  	App.init();
-
-});
-</script>
-
+	  });
+	</script>
 	
 	<!-- END JAVASCRIPTS -->	
 </body>

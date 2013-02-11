@@ -26,7 +26,7 @@
                                  <label class="control-label" for="nome">Nome</label>
                                  <div class="controls">
                                     <input type="text" class="span3" id="input1" name="nome" value="<?php
-	                                    $value = (is_array($soci_item) && isset($soci_item['nome']) ? ($soci_item['nome']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['nome']) ? ($soci_item['nome']) : set_value('nome'));
 	                                    echo($value);                                    
                                     	?>" />
                                  </div>
@@ -39,7 +39,7 @@
                                  <label class="control-label" for="cognome">Cognome</label>
                                  <div class="controls">
                                     <input type="text" class="span4" id="input1" name="cognome" value="<?php
-	                                    $value = (is_array($soci_item) && isset($soci_item['cognome']) ? ($soci_item['cognome']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['cognome']) ? ($soci_item['cognome']) : set_value('cognome'));
 	                                    echo($value);
                                     	?>" />
                                    </div>
@@ -76,7 +76,7 @@
                                  <label class="control-label" >Data di Nascita</label>
                                  <div class="controls">
                                     <input class="input-small date-picker" size="16" type="text" name="data_nascita" data-date-format="yyyy-mm-dd" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['data_nascita']) ? ($soci_item['data_nascita']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['data_nascita']) ? ($soci_item['data_nascita']) : set_value('data_nascita'));
 	                                    echo($value);                                    
 	                                    ?>"  />
                                  </div>
@@ -86,7 +86,7 @@
                                  <label class="control-label" for="cognome">Luogo di Nascita</label>
                                  <div class="controls">
                                     <input type="text" class="span4" id="input1" name="luogo_nascita" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['luogo_nascita']) ? ($soci_item['luogo_nascita']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['luogo_nascita']) ? ($soci_item['luogo_nascita']) : set_value('luogo_nascita'));
 	                                    echo($value);                                    
 	                                    ?>"  />                                    
                                  </div>
@@ -96,7 +96,7 @@
                                  <label class="control-label" for="cognome">Comune di Residenza</label>
                                  <div class="controls">
                                     <input type="text" class="span3" id="input1" name="comune_residenza" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['comune_residenza']) ? ($soci_item['comune_residenza']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['comune_residenza']) ? ($soci_item['comune_residenza']) : set_value('comune_residenza'));
 	                                    echo($value);                                    
 	                                    ?>"  />                                        
                                  </div>
@@ -106,7 +106,7 @@
                                  <label class="control-label" for="cognome">Indirizzo di Residenza</label>
                                  <div class="controls">
                                     <input type="text" class="span4" id="input1" name="indirizzo_residenza" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['indirizzo_residenza']) ? ($soci_item['indirizzo_residenza']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['indirizzo_residenza']) ? ($soci_item['indirizzo_residenza']) : set_value('indirizzo_residenza'));
 	                                    echo($value);                                    
 	                                    ?>"  />                                        
                                  </div>
@@ -117,7 +117,7 @@
                                  <div class="controls">
                                     <div class="input-prepend ">
                                        <span class="add-on">@</span><input class="input-medium span12" id="input7" type="text" placeholder="Indirizzo Email" name="email" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['email']) ? ($soci_item['email']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['email']) ? ($soci_item['email']) : set_value('email'));
 	                                    echo($value);                                    
 	                                    ?>"  />                                           		 
                                     </div>
@@ -128,7 +128,7 @@
                                  <label class="control-label" for="input6">Telefono</label>
                                  <div class="controls">
                                     <input type="text" class="span3" id="input6" name="telefono" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['telefono']) ? ($soci_item['telefono']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['telefono']) ? ($soci_item['telefono']) : set_value('telefono'));
 	                                    echo($value);                                    
 	                                    ?>"  />                                        
                                  </div>
@@ -148,7 +148,7 @@
 			                     <label class="control-label" >Certificato Medico</label>
 			                     <div class="controls">
 			                        <input class="input-small date-picker" size="16" type="text" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['certificato_medico']) ? ($soci_item['certificato_medico']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['certificato_medico']) ? ($soci_item['certificato_medico']) : set_value('certificato_medico'));
 	                                    echo($value);                                    
 	                                    ?>" name="certificato_medico" data-date-format="yyyy-mm-dd"/>
 			                     </div>
@@ -159,7 +159,7 @@
                                  <label class="control-label" for="inputRemarks">Note</label>
                                  <div class="controls">
                                     <textarea class="span6" rows="3" id="inputRemarks" name="note" /><?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['luogo_nascita']) ? ($soci_item['luogo_nascita']) : "");
+	                                    $value = (is_array($soci_item) && isset($soci_item['note']) ? ($soci_item['note']) : set_value('note'));
 	                                    echo($value);                                    
 	                                    ?></textarea>
                                  </div>

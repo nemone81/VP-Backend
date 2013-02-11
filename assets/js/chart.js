@@ -334,10 +334,6 @@ var App = function () {
         });
     }
 
-
-    // BEGIN CHART DASHBOARD
-
-
     var handleCharts = function () {
         if (!jQuery.plot) {
             return;
@@ -498,19 +494,15 @@ var App = function () {
 
                     $("#tooltip").remove();
                     var x = item.datapoint[0].toFixed(2),
-                        y = item.datapoint[1];
+                        y = item.datapoint[1].toFixed(2);
 
-                    showTooltip(item.pageX, item.pageY, y + " " + item.series.label);
+                    showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
                 }
             } else {
                 $("#tooltip").remove();
                 previousPoint = null;
             }
         });
-
-
-    // END CHART DASHBOARD
-
 
         //server load
         var options = {
@@ -671,7 +663,7 @@ var App = function () {
     }
 
     var handlePulsate = function () {
-        if (!jQuery().pulsate) {                 n.
+        if (!jQuery().pulsate) {
             return;
         }
 
@@ -1284,6 +1276,7 @@ var App = function () {
             handleWysihtml5();   //handles WYSIWYG Editor 
             handleDateTimePickers();  //handles form timepickers
             handleColorPicker();   // handles form color pickers
+            handleFancyBox();   // handles fancy box image previews
             handleStyler();  // handles style customer tool
             handleMainMenu(); // handles main menu
             handleFixInputPlaceholderForIE();  // fixes/enables html5 placeholder attribute for IE9, IE8
