@@ -463,7 +463,7 @@ var App = function () {
             },
             colors: ["#d12610", "#37b7f3", "#52e136"],
             xaxis: {
-                ticks: 11,
+                ticks: [[1,"Gen"],[2,"Feb"],[3,"Mar"],[4,"Apr"],[5,"Mag"],[6,"Giu"],[7,"Lug"],[8,"Ago"],[9,"Set"],[10,"Ott"],[11,"Nov"],[12,"Dic"]],
                 tickDecimals: 0
             },
             yaxis: {
