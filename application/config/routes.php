@@ -39,32 +39,19 @@
 
 */
 //$route['dump/(:any)'] = 'dump/';
-$route['admin/logout'] = 'admin/logout';
-
-$route['welcome'] = 'welcome';
-$route['admin'] = 'admin';
-
-$route['backup/backup_db'] = 'backup/backup_db';
 
 $route['dashboard/(:any)'] = 'dashboard/index/$1';
-$route['dashboard'] = 'dashboard';
 
 $route['abbonamenti/edit/(:any)'] = 'abbonamenti/edit/$1';
 $route['abbonamenti/delete_abbonamenti/(:any)'] = 'abbonamenti/delete_abbonamenti/$1';
 $route['abbonamenti/abb_edit/(:any)'] = 'abbonamenti/abb_edit/$1';
 $route['abbonamenti/create/(:any)'] = 'abbonamenti/create/$1';
-$route['abbonamenti/create'] = 'abbonamenti/create';
 
-$route['soci/backup_db'] = 'soci/backup_db';
-$route['soci/get_csv_soci'] = 'soci/get_csv_soci';
-$route['soci/create'] = 'soci/create';
 $route['soci/edit/(:any)'] = 'soci/edit/$1';
-$route['soci/delete_soci'] = 'soci/delete_soci';
 $route['soci/delete_soci/(:any)'] = 'soci/delete_soci/$1';
 $route['soci/(:any)'] = 'soci/view/$1';
-$route['soci'] = 'soci';
 
-$route['(:any)'] = 'pages/view/$1';
+//$route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = "soci";
 
 
