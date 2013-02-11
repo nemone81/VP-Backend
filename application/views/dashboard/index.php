@@ -22,7 +22,7 @@
 			<!-- BEGIN WIDGET ISCRIZIONI SCADUTE-->
 			<div class="widget">
 				<div class="widget-title">
-					<h4><i class="icon-list"> </i>Iscrizioni, Annuali, Trimestrali: Scaduti negli ultimi 60 giorni</h4>
+					<h4><i class="icon-list"> </i>Iscrizioni, Annuali, Trimestrali: Scaduti negli ultimi 30 giorni</h4>
 					<span class="tools">
 								
 					</span>							

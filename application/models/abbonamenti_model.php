@@ -58,7 +58,7 @@ class Abbonamenti_model extends CI_Model {
 	public function get_abbonamenti_scaduti() // restituisce Iscrizione, Trimestrali o Annuali scaduti negli ultim 60 giorni
 		{
 			$now = unix_to_human(time());
-			$mesidue = unix_to_human((time()-5184000)); // la data di oggi -60 giorni
+			$mesidue = unix_to_human((time()-2592000)); // la data di oggi -30 giorni
 			$this->db->where('delete', 0);
 			$this->db->where('scadenza <', $now); 
 			$this->db->where('scadenza >', $mesidue); // 
