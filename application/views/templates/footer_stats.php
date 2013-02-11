@@ -23,6 +23,12 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/gritter/js/jquery.gritter.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/uniform/jquery.uniform.min.js') ?>"></script>
 	<script src="<?php echo base_url('assets/fancybox/source/jquery.fancybox.pack.js') ?>"></script>
+	<script src="<?php echo base_url('api/getJsonPData/iscrizioni') ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('api/getJsonPData/carnet') ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('api/getJsonPData/mensili') ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('api/getJsonPData/annuali') ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('api/getJsonPData/trimestrali') ?>" type="text/javascript"></script>
+
 	<script src="<?php echo base_url('assets/js/app.js') ?>"></script>	
 	
 <script>

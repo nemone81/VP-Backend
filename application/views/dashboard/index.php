@@ -3,6 +3,7 @@
 	<!-- BEGIN ROW-->
 	
 
+<!--
 	<?php echo'iscritti: '; print_r($storico_iscritti);	?>
 	<br>
 	<?php echo'mensili :'; print_r($storico_mensili);	?>
@@ -13,6 +14,7 @@
 	<br>
 	<?php echo'trimestrali: '; print_r($storico_trimestrali);	?>
 	<br>
+-->
 
 
 	<div class="row-fluid">

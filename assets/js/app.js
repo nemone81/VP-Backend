@@ -346,7 +346,7 @@ var App = function () {
         function randValue() {
             return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
         }
-
+        /*
         var iscrizioni = [
             [1, randValue()],
             [2, randValue()],
@@ -417,6 +417,7 @@ var App = function () {
             [11, 39 + randValue()],
             [12, 50 + randValue()]
         ];       
+        */        
         $('#site_statistics_loading').hide();
         $('#site_statistics_content').show();
 
