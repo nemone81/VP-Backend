@@ -1,2 +1,5 @@
+# OSX specific
 .DS_Store
+
+# DB config
 application/config/database.php
