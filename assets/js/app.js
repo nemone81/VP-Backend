@@ -672,7 +672,7 @@ var App = function () {
     }
 
     var handlePulsate = function () {
-        if (!jQuery().pulsate) {                 n.
+        if (!jQuery().pulsate) {
             return;
         }
 
