@@ -55,7 +55,7 @@
 	                                    $class = (is_array($soci_item) && isset($soci_item['tessera']) ? 'span1' : 'span1 popovers');
 	                                    echo($class);
                                     	?>" id="input3" data-trigger="hover" data-content="Il campo è prepolato con il numero della prima tessera disponibile." data-original-title="Numero Tessera" name="tessera" value="<?php 
-	                                    $value = (is_array($soci_item) && isset($soci_item['tessera']) ? ($soci_item['tessera']) : ($Ntessera + 1));
+	                                    $value = (is_array($soci_item) && isset($soci_item['tessera']) ? ($soci_item['tessera']) : set_value('tessera', $Ntessera + 1));
 	                                    echo($value);
                                     	?>" /> 	
 			                     </div>			                     
@@ -65,9 +65,9 @@
                                  <label class="control-label" >Tipo</label>
                                  <div class="controls">
                                     <select class="span2" data-placeholder="Scegli" tabindex="1" name="tipo" id="tipo">
-                                       <option value="S">Standard</option>
-                                       <option value="U">Universitario</option>
-                                       <option value="B">Bambino</option>
+                                       <option value="S" <?php echo set_select('tipo', 'S', TRUE); ?>>Standard</option>
+                                       <option value="U" <?php echo set_select('tipo', 'U'); ?>>Universitario</option>
+                                       <option value="B" <?php echo set_select('tipo', 'B'); ?>>Bambino</option>
                                     </select>
                                  </div>
                               </div>
@@ -138,8 +138,8 @@
                                  <label class="control-label" >Sesso</label>
                                  <div class="controls">
                                     <select class="span2" data-placeholder="Scegli" tabindex="1" name="sesso" id="sesso"/>
-                                       <option value="Maschio">Maschio</option>
-                                       <option value="Femmina">Femmina</option>
+                                       <option value="Maschio" <?php echo set_select('sesso', 'Maschio', TRUE); ?>>Maschio</option>
+                                       <option value="Femmina" <?php echo set_select('sesso', 'Femmina'); ?>>Femmina</option>
                                     </select>
                                  </div>
                               </div>

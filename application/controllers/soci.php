@@ -58,16 +58,17 @@ class Soci extends CI_Controller {
 		$data['title'] = 'Inserisci un nuovo socio';
 		$data['tipologia'] = $this->tipologia->getData();
 
-
 		$this->form_validation->set_rules('nome', 'nome', 'required');
 		$this->form_validation->set_rules('cognome', 'cognome', 'required');	
-		$this->form_validation->set_rules('luogo_nascita', 'luogo_nascita');
+		$this->form_validation->set_rules('tessera', 'tessera');
+		$this->form_validation->set_rules('tipo', 'tipo');
 		$this->form_validation->set_rules('data_nascita', 'data_nascita');
 		$this->form_validation->set_rules('luogo_nascita', 'luogo_nascita');
 		$this->form_validation->set_rules('comune_residenza', 'comune_residenza');
 		$this->form_validation->set_rules('indirizzo_residenza', 'indirizzo_residenza');
-		$this->form_validation->set_rules('telefono', 'telefono');
 		$this->form_validation->set_rules('email', 'email');
+		$this->form_validation->set_rules('telefono', 'telefono');
+		$this->form_validation->set_rules('sesso', 'sesso');
 		$this->form_validation->set_rules('certificato_medico', 'certificato_medico');
 		$this->form_validation->set_rules('note', 'note');
 
