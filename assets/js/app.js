@@ -477,14 +477,15 @@ var App = function () {
             $('<div id="tooltip">' + contents + '</div>').css({
                 position: 'absolute',
                 display: 'none',
-                top: y + 5,
+                top: y -17,
                 left: x + 15,
-                border: '1px solid #333',
-                padding: '4px',
-                color: '#fff',
-                'border-radius': '3px',
-                'background-color': '#333',
-                opacity: 0.80
+                border: '1px solid #e1e1e1',
+                fontWeight: 'bold',
+                padding: '5px 10px',
+                color: '#646464',
+                'border-radius': '5px',
+                'background-color': '#fff',
+
             }).appendTo("body").fadeIn(200);
         }
 
