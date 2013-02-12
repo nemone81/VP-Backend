@@ -60,8 +60,17 @@ class Soci extends CI_Controller {
 
 
 		$this->form_validation->set_rules('nome', 'nome', 'required');
-		$this->form_validation->set_rules('cognome', 'cognome', 'required');
-		
+		$this->form_validation->set_rules('cognome', 'cognome', 'required');	
+		$this->form_validation->set_rules('luogo_nascita', 'luogo_nascita');
+		$this->form_validation->set_rules('data_nascita', 'data_nascita');
+		$this->form_validation->set_rules('luogo_nascita', 'luogo_nascita');
+		$this->form_validation->set_rules('comune_residenza', 'comune_residenza');
+		$this->form_validation->set_rules('indirizzo_residenza', 'indirizzo_residenza');
+		$this->form_validation->set_rules('telefono', 'telefono');
+		$this->form_validation->set_rules('email', 'email');
+		$this->form_validation->set_rules('certificato_medico', 'certificato_medico');
+		$this->form_validation->set_rules('note', 'note');
+
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data['soci_item'] = '';
