@@ -15,9 +15,10 @@ class Dashboard extends CI_Controller {
 
 	}
 
-	public function index($anno)//$anno = null)
+	public function index($anno = null)	
 	{	
-	//	$anno = '2014';
+		if ($anno == null) $anno = date('Y');
+		
 		$data['soci'] = $this->soci_model->get_soci();
 		$data['title'] = 'Lista Soci';
 		$data['tipologia'] = $this->tipologia->getData();

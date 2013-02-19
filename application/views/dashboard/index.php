@@ -22,7 +22,7 @@
 			<!-- BEGIN WIDGET ISCRIZIONI SCADUTE-->
 			<div class="widget">
 				<div class="widget-title">
-					<h4><i class="icon-list"> </i>Iscrizioni, Annuali, Trimestrali: Scaduti negli ultimi 30 giorni</h4>
+					<h4><i class="icon-list"> </i>Iscrizioni, Annuali, Trimestrali: Scaduti negli ultimi 30 giorni NO MENSILI</h4>
 					<span class="tools">
 								
 					</span>							
@@ -77,7 +77,7 @@
 			<div class="widget">
 				<div class="widget">
 					<div class="widget-title">
-						<h4><i class="icon-reorder"></i>Acquisti</h4>						
+						<h4><i class="icon-reorder"></i>Acquisti nel <?php echo date("Y")?></h4>						
 					</div>
 					<div class="widget-body">
 						<div id="site_statistics" class="chart"></div>

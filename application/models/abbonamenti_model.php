@@ -58,10 +58,10 @@ class Abbonamenti_model extends CI_Model {
 	public function get_abbonamenti_scaduti() // restituisce Iscrizione, Trimestrali o Annuali scaduti negli ultim 60 giorni
 		{
 			$now = unix_to_human(time());
-			$mesidue = unix_to_human((time()-2592000)); // la data di oggi -30 giorni
+			$tempo = unix_to_human((time()-2592000)); // la data di oggi -30 giorni
 			$this->db->where('delete', 0);
 			$this->db->where('scadenza <', $now); 
-			$this->db->where('scadenza >', $mesidue); // 
+			$this->db->where('scadenza >', $tempo); // 
 			$this->db->not_like('codice_abbonamento', 'M' ); // tipologia Mensile
 			$this->db->not_like('codice_abbonamento', 'K' ); // tipologia Carnet
 			$query = $this->db->get('abbonamenti');
@@ -126,21 +126,6 @@ class Abbonamenti_model extends CI_Model {
 		return $query->result_array();
 	}		
 			
-		
-	public function update_abbonamenti_storico($id,$year)// storico sul db
-	{		
-		$this->load->helper('url');
-		$nowhuman =  unix_to_human(time(), TRUE, 'us'); // U.S. time with seconds
-		$up_data = array(
-			'tipologia' => $this->input->post('tipo').$this->input->post('abbonamento').$this->input->post('tipologia').'-2013',
-			'mese' => $this->input->post('data_scadenza_anno').'-'.$this->input->post('data_scadenza_mese').' 23:59:59',
-			'totali' => $this->input->post('note'),
-			'data_modifica' => $nowhuman,
-			);
-		//$this->db->where('id', $id);	
-		$this->db->update('storico_abbonamenti', $up_data);
-	}
-
 }
 
 
